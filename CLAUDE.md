@@ -1,5 +1,10 @@
 # CLAUDE.md — Regras do projecto blog-danielesfranca
 
+## Ficheiro de progresso
+Lê sempre o PROGRESS.md no início de cada sessão.
+Actualiza o PROGRESS.md no fim de cada sessão antes
+do commit final.
+
 ## Identidade visual — PROTEGIDA
 Nunca alteres cores, tipografia, border-radius, spacing ou
 qualquer CSS existente sem pedido explícito com a frase
@@ -36,7 +41,9 @@ Exemplos:
 ## Workflow de publicação de artigos
 1. Criar articles/slug.html com corpo do artigo
 2. Adicionar entrada em posts.json
-3. git commit "artigo: slug-do-artigo publicado"
+3. node build-sitemap.js
+4. Actualizar PROGRESS.md
+5. git commit "artigo: slug-do-artigo publicado"
 Nunca ao contrário.
 
 ## Confirmação antes de editar
