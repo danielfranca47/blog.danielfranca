@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>A redirecionar…</title>
+  <meta name="robots" content="noindex" />
+  <script>
+    // SPA fallback para GitHub Pages: guarda o path original e redireciona
+    // para "/", onde o index.html lê este valor e restaura o URL sem reload.
+    sessionStorage.setItem('redirect', location.pathname + location.search + location.hash);
+    location.replace('/');
+  </script>
+</head>
+<body></body>
+</html>

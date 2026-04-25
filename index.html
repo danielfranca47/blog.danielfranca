@@ -858,15 +858,14 @@
   const ORIGINAL_TITLE = document.title;
   const ORIGINAL_DESC  = document.querySelector('meta[name="description"]').content;
 
-  // page id (interno) ↔ hash (URL)
-  const PAGE_TO_HASH = {
-    home:    '#/',
-    cats:    '#/categorias',
-    sobre:   '#/sobre',
-    contact: '#/contacto'
+  // page id (interno) ↔ path (URL real, history API)
+  const PAGE_TO_PATH = {
+    home:    '/',
+    cats:    '/categorias',
+    sobre:   '/sobre',
+    contact: '/contacto'
   };
-  const HASH_TO_PAGE = {
-    '':            'home',
+  const PATH_TO_PAGE = {
     '/':           'home',
     '/categorias': 'cats',
     '/sobre':      'sobre',
@@ -892,8 +891,12 @@
   // ─────────────────────────────────────────────────────
   //  Navegação
   // ─────────────────────────────────────────────────────
-  function goPage(id)        { location.hash = PAGE_TO_HASH[id] || '#/'; }
-  function goArticle(slug)   { location.hash = '#/artigo/' + slug; }
+  function navigate(path) {
+    if (location.pathname !== path) history.pushState(null, '', path);
+    handleRoute();
+  }
+  function goPage(id)        { navigate(PAGE_TO_PATH[id] || '/'); }
+  function goArticle(slug)   { navigate('/artigo/' + slug); }
 
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -910,13 +913,13 @@
   }
 
   async function handleRoute() {
-    const raw = location.hash.replace(/^#/, '');
-    if (raw.startsWith('/artigo/')) {
-      const slug = raw.slice('/artigo/'.length);
+    const path = location.pathname;
+    if (path.startsWith('/artigo/')) {
+      const slug = path.slice('/artigo/'.length);
       await renderArticle(slug);
       return;
     }
-    const page = HASH_TO_PAGE[raw] || 'home';
+    const page = PATH_TO_PAGE[path] || 'home';
     document.title = ORIGINAL_TITLE;
     document.querySelector('meta[name="description"]').setAttribute('content', ORIGINAL_DESC);
     showPage(page);
@@ -1020,7 +1023,8 @@
   async function renderArticle(slug) {
     const post = DATA.posts.find(p => p.slug === slug);
     if (!post || post.status === 'draft') {
-      location.hash = '#/';
+      history.replaceState(null, '', '/');
+      handleRoute();
       return;
     }
     const cat = DATA.categories[post.category];
@@ -1040,7 +1044,7 @@
     showPage('artigo');
 
     try {
-      const res = await fetch('articles/' + slug + '.html', { cache: 'no-cache' });
+      const res = await fetch('/articles/' + slug + '.html', { cache: 'no-cache' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       body.innerHTML = await res.text();
     } catch (e) {
@@ -1081,18 +1085,27 @@
   //  Bootstrap
   // ─────────────────────────────────────────────────────
   async function init() {
+    // SPA fallback: quando o utilizador entra directamente em /artigo/x,
+    // o GitHub Pages serve 404.html, que guarda o path em sessionStorage
+    // e redireciona para /. Aqui restauramos o path original sem reload.
+    const redirect = sessionStorage.getItem('redirect');
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      history.replaceState(null, '', redirect);
+    }
+
     try {
-      const res = await fetch('posts.json', { cache: 'no-cache' });
+      const res = await fetch('/posts.json', { cache: 'no-cache' });
       DATA = await res.json();
     } catch (e) {
       document.getElementById('posts-grid').innerHTML =
-        '<p style="color: var(--text-3);">Erro a carregar posts.json. Se estás a abrir o ficheiro localmente, usa um servidor (ex.: <code>python -m http.server</code>).</p>';
+        '<p style="color: var(--text-3);">Erro a carregar posts.json. Para testar localmente usa um servidor com fallback SPA (ex.: <code>npx serve --single</code>).</p>';
       return;
     }
     renderHome();
     renderCategories();
     await handleRoute();
-    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('popstate', handleRoute);
   }
   init();
 </script>
