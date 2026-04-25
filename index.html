@@ -1054,7 +1054,12 @@
     try {
       const res = await fetch('/articles/' + slug + '.html', { cache: 'no-cache' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      body.innerHTML = await res.text();
+      const html = await res.text();
+      const trimmed = html.trimStart();
+      if (trimmed.startsWith('<!DOCTYPE') || trimmed.startsWith('<html')) {
+        throw new Error('SPA fallback: recebido index.html em vez do corpo do artigo');
+      }
+      body.innerHTML = html;
     } catch (e) {
       body.innerHTML = '<p>Não foi possível carregar este artigo. Verifica a ligação ou tenta novamente.</p>';
     }

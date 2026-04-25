@@ -2,7 +2,7 @@
 
 ## Última sessão
 Data: 2026-04-25
-Commits: config: newsletter ligada ao MailerLite
+Commits: fix: routing de artigo rejeita SPA fallback do servidor
 
 ## Feito
 - Sistema dinâmico de posts (posts.json + articles/)
@@ -15,6 +15,7 @@ Commits: config: newsletter ligada ao MailerLite
 - ARTICLE_TEMPLATE.html como referência de formato
 - Web3Forms ligado ao formulário de contacto (AJAX, feedback inline, honeypot anti-spam)
 - MailerLite ligado à newsletter (AJAX no-cors, mantém identidade visual existente)
+- renderArticle valida resposta do fetch (rejeita HTML completo / SPA fallback do servidor) — evita injecção de index.html dentro do art-body
 
 ## A fazer (por ordem)
 - [ ] Imagens reais (foto perfil, thumbnails por categoria)
