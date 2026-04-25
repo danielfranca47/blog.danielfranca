@@ -1,0 +1,184 @@
+{
+  "categories": {
+    "ia": {
+      "name": "Inteligência Artificial",
+      "tagClass": "tag-ia",
+      "subtitle": "IA aplicada a negócios reais"
+    },
+    "marketing": {
+      "name": "Marketing Digital",
+      "tagClass": "tag-mkt",
+      "subtitle": "Estratégias que geram clientes reais"
+    },
+    "automacoes": {
+      "name": "Automações",
+      "tagClass": "tag-auto",
+      "subtitle": "Sistemas que trabalham por si"
+    },
+    "estrategia": {
+      "name": "Estratégia de Negócios",
+      "tagClass": "tag-neg",
+      "subtitle": "Decisões que mudam resultados"
+    }
+  },
+  "posts": [
+    {
+      "slug": "ia-negocios-locais-2025",
+      "title": "Como a IA está a mudar o jogo para negócios locais em 2025",
+      "category": "ia",
+      "excerpt": "Ferramentas que até há pouco eram exclusivas de grandes empresas estão agora ao alcance de qualquer empreendedor — e os que souberem usá-las primeiro vão ter vantagem real no mercado.",
+      "date": "2025-04-24",
+      "readTime": "5 min de leitura",
+      "featured": true,
+      "author": "Daniel França"
+    },
+    {
+      "slug": "follow-up-que-nao-parece-follow-up",
+      "title": "Follow-up que não parece follow-up: a arte de manter o cliente interessado",
+      "category": "marketing",
+      "excerpt": "Como criar contactos de valor após uma reunião sem pressionar — e usar conteúdo estratégico para reaquecer leads.",
+      "date": "2025-04-18",
+      "readTime": "4 min de leitura",
+      "featured": false,
+      "author": "Daniel França"
+    },
+    {
+      "slug": "crm-para-autonomos",
+      "title": "CRM para autónomos: como estruturar sem gastar uma fortuna",
+      "category": "automacoes",
+      "excerpt": "Um sistema de gestão de clientes não precisa de ser complexo para funcionar. Veja como estruturar o essencial.",
+      "date": "2025-04-10",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "author": "Daniel França"
+    },
+    {
+      "slug": "proposta-comercial-que-convence",
+      "title": "Proposta comercial que convence: estrutura para consultores independentes",
+      "category": "estrategia",
+      "excerpt": "Os elementos que separam uma proposta ignorada de uma que gera resposta — com exemplos práticos.",
+      "date": "2025-04-03",
+      "readTime": "5 min de leitura",
+      "featured": false,
+      "author": "Daniel França"
+    },
+    {
+      "slug": "agentes-de-ia-para-vendas",
+      "title": "Agentes de IA para vendas: o que é real e o que ainda é promessa",
+      "category": "ia",
+      "excerpt": "Guia honesto sobre o que os agentes de IA já conseguem fazer no processo comercial — e onde ainda falham.",
+      "date": "2025-03-28",
+      "readTime": "7 min de leitura",
+      "featured": false,
+      "author": "Daniel França"
+    },
+    {
+      "slug": "trafego-pago-negocios-locais",
+      "title": "Tráfego pago para negócios locais: onde investir com orçamento limitado",
+      "category": "marketing",
+      "excerpt": "Meta Ads ou Google Ads? Como decidir onde colocar o primeiro euro e o que esperar nos primeiros 30 dias.",
+      "date": "2025-03-20",
+      "readTime": "5 min de leitura",
+      "featured": false,
+      "author": "Daniel França"
+    },
+    {
+      "slug": "whatsapp-business-automacao",
+      "title": "WhatsApp Business + automação: guia prático para pequenas empresas",
+      "category": "automacoes",
+      "excerpt": "Como configurar respostas automáticas, funis de conversação e agendamento sem código e sem custos elevados.",
+      "date": "2025-03-14",
+      "readTime": "6 min de leitura",
+      "featured": false,
+      "author": "Daniel França"
+    },
+    {
+      "slug": "chatgpt-vs-claude",
+      "title": "ChatGPT vs Claude: qual usar no dia a dia do seu negócio",
+      "category": "ia",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    },
+    {
+      "slug": "ia-conteudo-que-converte",
+      "title": "Como usar IA para criar conteúdo que converte sem soar genérico",
+      "category": "ia",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    },
+    {
+      "slug": "funil-de-vendas-para-consultores",
+      "title": "O funil de vendas que funciona para consultores independentes",
+      "category": "marketing",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    },
+    {
+      "slug": "google-meu-negocio-portugal",
+      "title": "Google Meu Negócio: o guia completo para negócios locais em Portugal",
+      "category": "marketing",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    },
+    {
+      "slug": "make-vs-zapier",
+      "title": "Make vs Zapier: qual escolher para automatizar o seu negócio local",
+      "category": "automacoes",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    },
+    {
+      "slug": "precificacao-servicos-consultoria",
+      "title": "Precificação para serviços de consultoria: o guia honesto",
+      "category": "estrategia",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    },
+    {
+      "slug": "qualificar-lead-antes-da-reuniao",
+      "title": "Como qualificar um lead antes da primeira reunião (e parar de perder tempo)",
+      "category": "estrategia",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    },
+    {
+      "slug": "caso-pratico-90-dias",
+      "title": "Caso prático: como um negócio local triplicou os agendamentos em 90 dias",
+      "category": "estrategia",
+      "excerpt": null,
+      "date": null,
+      "readTime": null,
+      "featured": false,
+      "author": "Daniel França",
+      "status": "draft"
+    }
+  ]
+}

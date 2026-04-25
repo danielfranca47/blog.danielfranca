@@ -1,0 +1,77 @@
+<!--
+═══════════════════════════════════════════════════════════════
+  ARTICLE TEMPLATE  ·  articles/<slug>.html
+═══════════════════════════════════════════════════════════════
+
+  Este ficheiro é APENAS uma referência de formato.
+  Cada artigo em articles/ contém apenas o conteúdo do CORPO
+  do artigo (o que vai dentro de <div class="art-body">).
+
+  NÃO incluas neste ficheiro:
+    ✗ <html>, <head>, <body>, <link>, <script>
+    ✗ O <h1> com o título            (vem de posts.json → title)
+    ✗ A meta com autor/data/leitura  (vem de posts.json → author/date/readTime)
+    ✗ O lead inicial (subtítulo)     (vem de posts.json → excerpt)
+    ✗ A tag de categoria             (vem de posts.json → category)
+    ✗ O CTA final "Este artigo foi útil?"   (renderizado pelo index.html)
+    ✗ A secção "Artigos relacionados"       (renderizado pelo index.html)
+    ✗ <footer>                              (renderizado pelo index.html)
+
+  Começa o ficheiro DIRETAMENTE pelo primeiro <p> do corpo
+  (ou seja, o que viria a seguir ao lead).
+
+  ─── TAGS HTML DISPONÍVEIS (já estilizadas em index.html) ───
+
+  <p>          Parágrafo
+  <h2>         Secção
+  <h3>         Subsecção
+  <strong>     Ênfase forte (cor escura, peso 500)
+  <ul>/<li>    Lista com bullets
+  <blockquote> Citação destacada (fundo âmbar, borda esquerda)
+
+  <div class="mid-cta">
+    <p>Texto do CTA inline a meio do artigo.</p>
+    <button class="btn-primary" onclick="goPage('contact')">Texto botão →</button>
+  </div>
+
+  ─── EXEMPLO ABAIXO ───
+-->
+
+<p>Primeiro parágrafo do corpo do artigo. Apresenta a ideia central com contexto. Podes usar <strong>texto destacado</strong> para enfatizar conceitos-chave.</p>
+
+<p>Segundo parágrafo a desenvolver a ideia. Mantém parágrafos curtos (3–5 linhas) para boa leitura no telemóvel.</p>
+
+<blockquote>Uma frase de impacto, citação ou conclusão parcial que merece destaque visual.</blockquote>
+
+<h2>Primeira secção</h2>
+
+<p>Texto da secção...</p>
+
+<p>Pontos a reter:</p>
+
+<ul>
+  <li><strong>Ponto 1:</strong> descrição curta e accionável.</li>
+  <li><strong>Ponto 2:</strong> descrição curta e accionável.</li>
+  <li><strong>Ponto 3:</strong> descrição curta e accionável.</li>
+</ul>
+
+<div class="mid-cta">
+  <p>Quer aplicar isto no seu negócio? Fale comigo numa reunião sem compromisso.</p>
+  <button class="btn-primary" onclick="goPage('contact')">Agendar reunião →</button>
+</div>
+
+<h2>Segunda secção</h2>
+
+<p>Texto introdutório da secção...</p>
+
+<h3>Subsecção</h3>
+
+<p><strong>1. Primeiro passo.</strong> Descrição do passo, com detalhe suficiente para ser útil.</p>
+
+<p><strong>2. Segundo passo.</strong> Descrição do passo.</p>
+
+<p><strong>3. Terceiro passo.</strong> Descrição do passo.</p>
+
+<h2>Conclusão</h2>
+
+<p>Parágrafo final que fecha o argumento e idealmente prepara o leitor para a CTA final (que será renderizada automaticamente pelo index.html a seguir a este conteúdo).</p>

@@ -610,26 +610,7 @@
   <div style="padding: 3rem 0; border-bottom: 1px solid var(--border);">
     <div class="container fade-up-2">
       <div class="section-label"><span>Em destaque</span><hr /></div>
-      <div class="featured-card" onclick="goPage('artigo')">
-        <div>
-          <span class="tag tag-ia">Inteligência Artificial</span>
-          <h2>Como a IA está a mudar o jogo para negócios locais em 2025</h2>
-          <p class="post-meta">Daniel França · 24 Abr 2025 · 5 min de leitura</p>
-          <p>Ferramentas que até há pouco eram exclusivas de grandes empresas estão agora ao alcance de qualquer empreendedor — e os que souberem usá-las primeiro vão ter vantagem real no mercado.</p>
-
-          <!-- MID-ARTICLE CTA (inline preview) -->
-          <div class="mid-cta">
-            <p>Quer aplicar isto no seu negócio? Fale com Daniel numa reunião sem compromisso.</p>
-            <button class="btn-primary" onclick="event.stopPropagation(); goPage('contact')">Agendar →</button>
-          </div>
-
-          <a class="read-link" onclick="goPage('artigo')">Ler artigo completo →</a>
-        </div>
-        <div class="feat-thumb">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="14" stroke="currentColor" stroke-width="1.5" /><path d="M13 19h12M19 13v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
-          <span>Imagem</span>
-        </div>
-      </div>
+      <div id="featured-card" class="featured-card"></div>
     </div>
   </div>
 
@@ -639,44 +620,7 @@
         <h3>Artigos recentes</h3>
         <a onclick="goPage('cats')">Ver todos →</a>
       </div>
-      <div class="posts-grid">
-        <div class="post-card" onclick="goPage('artigo')">
-          <span class="tag tag-mkt">Marketing</span>
-          <h4>Follow-up que não parece follow-up: a arte de manter o cliente interessado</h4>
-          <p>Como criar contactos de valor após uma reunião sem pressionar — e usar conteúdo estratégico para reaquecer leads.</p>
-          <div class="post-meta">18 Abr 2025 · 4 min de leitura</div>
-        </div>
-        <div class="post-card">
-          <span class="tag tag-auto">Automações</span>
-          <h4>CRM para autônomos: como estruturar sem gastar uma fortuna</h4>
-          <p>Um sistema de gestão de clientes não precisa de ser complexo para funcionar. Veja como estruturar o essencial.</p>
-          <div class="post-meta">10 Abr 2025 · 6 min de leitura</div>
-        </div>
-        <div class="post-card">
-          <span class="tag tag-neg">Estratégia</span>
-          <h4>Proposta comercial que convence: estrutura para consultores independentes</h4>
-          <p>Os elementos que separam uma proposta ignorada de uma que gera resposta — com exemplos práticos.</p>
-          <div class="post-meta">3 Abr 2025 · 5 min de leitura</div>
-        </div>
-        <div class="post-card">
-          <span class="tag tag-ia">Inteligência Artificial</span>
-          <h4>Agentes de IA para vendas: o que é real e o que ainda é promessa</h4>
-          <p>Guia honesto sobre o que os agentes de IA já conseguem fazer no processo comercial — e onde ainda falham.</p>
-          <div class="post-meta">28 Mar 2025 · 7 min de leitura</div>
-        </div>
-        <div class="post-card">
-          <span class="tag tag-mkt">Marketing</span>
-          <h4>Tráfego pago para negócios locais: onde investir com orçamento limitado</h4>
-          <p>Meta Ads ou Google Ads? Como decidir onde colocar o primeiro euro e o que esperar nos primeiros 30 dias.</p>
-          <div class="post-meta">20 Mar 2025 · 5 min de leitura</div>
-        </div>
-        <div class="post-card">
-          <span class="tag tag-auto">Automações</span>
-          <h4>WhatsApp Business + automação: guia prático para pequenas empresas</h4>
-          <p>Como configurar respostas automáticas, funis de conversação e agendamento sem código e sem custos elevados.</p>
-          <div class="post-meta">14 Mar 2025 · 6 min de leitura</div>
-        </div>
-      </div>
+      <div id="posts-grid" class="posts-grid"></div>
     </div>
   </div>
 
@@ -706,62 +650,21 @@
   <div class="container-narrow">
     <div class="art-wrap fade-up">
       <a class="back-btn" onclick="goPage('home')">← Voltar ao início</a>
-      <span class="tag tag-ia">Inteligência Artificial</span>
-      <h1>Como a IA está a mudar o jogo para negócios locais em 2025</h1>
-      <p class="art-lead">Ferramentas que até há pouco eram exclusivas de grandes empresas estão agora ao alcance de qualquer empreendedor — e os que souberem usá-las primeiro vão ter vantagem real.</p>
+      <span id="art-tag" class="tag"></span>
+      <h1 id="art-title"></h1>
+      <p id="art-lead" class="art-lead"></p>
       <div class="art-meta">
         <div class="author-chip">
-          <div class="author-avatar">DF</div>
-          <span>Daniel França</span>
+          <div id="art-avatar" class="author-avatar"></div>
+          <span id="art-author"></span>
         </div>
         <span>·</span>
-        <span>24 Abr 2025</span>
+        <span id="art-date"></span>
         <span>·</span>
-        <span>5 min de leitura</span>
+        <span id="art-readtime"></span>
       </div>
 
-      <div class="art-body">
-        <p>Durante anos, ferramentas de automação, agentes de vendas e análise de dados eram território exclusivo de grandes empresas com orçamentos avultados e equipas técnicas dedicadas. <strong>Isso mudou completamente em 2024 e 2025.</strong></p>
-
-        <p>A democratização da IA generativa abriu portas que antes estavam fechadas. Um consultor individual consegue hoje automatizar o follow-up de clientes, gerar conteúdo estratégico personalizado e ter um agente virtual a responder perguntas — tudo sem código e sem grandes investimentos.</p>
-
-        <blockquote>A vantagem competitiva já não está em ter acesso às ferramentas. Está em saber usá-las antes dos outros no teu mercado.</blockquote>
-
-        <h2>O que mudou concretamente</h2>
-
-        <p>Nos meus projetos com clientes locais — desde clínicas de estética a consultores independentes — tenho visto resultados concretos: redução do tempo de follow-up em 60%, aumento da taxa de resposta em mensagens automatizadas e processos comerciais que antes levavam horas a executar manualmente.</p>
-
-        <p>As principais mudanças que estou a observar no terreno:</p>
-
-        <ul>
-          <li><strong>Automação de follow-up:</strong> sequências de mensagens personalizadas que mantêm o lead quente sem intervenção manual.</li>
-          <li><strong>Geração de conteúdo estratégico:</strong> artigos, posts e emails criados com IA mas com a voz e estratégia do consultor.</li>
-          <li><strong>Qualificação de leads automática:</strong> chatbots que fazem as perguntas certas antes da primeira reunião.</li>
-          <li><strong>CRM inteligente:</strong> sistemas que sugerem o próximo passo com cada cliente com base no histórico.</li>
-        </ul>
-
-        <!-- MID-ARTICLE CTA — posição estratégica a meio do artigo -->
-        <div class="mid-cta">
-          <p>Quer saber como implementar isto no seu negócio específico?</p>
-          <button class="btn-primary" onclick="goPage('contact')">Agendar reunião gratuita →</button>
-        </div>
-
-        <h2>Por onde começar</h2>
-
-        <p>O erro mais comum é tentar implementar tudo de uma vez. A abordagem que recomendo é identificar <strong>um único ponto de dor no processo comercial</strong> e automatizá-lo primeiro. Quando esse processo estiver a funcionar bem, avança para o seguinte.</p>
-
-        <p>Para a maioria dos negócios locais, o ponto de maior impacto é o follow-up pós-reunião. É onde a maioria das vendas se perdem — não por falta de interesse do cliente, mas por falta de acompanhamento estruturado e consistente.</p>
-
-        <h3>Os 3 passos que recomendo</h3>
-
-        <p><strong>1. Mapeares o teu processo atual.</strong> Antes de automatizar, percebes o que já fazes — e o que deixas escapar. Um simples mapa do teu funil de vendas já revela onde estás a perder clientes.</p>
-
-        <p><strong>2. Escolheres uma ferramenta e dominares só ela.</strong> CRM simples, WhatsApp Business com automações básicas, ou uma sequência de email marketing. Uma coisa de cada vez.</p>
-
-        <p><strong>3. Medires o impacto antes de avançares.</strong> Quantos leads passaram pela automação? Quantos responderam? Qual foi a taxa de conversão? Com esses dados, sabes se vale a pena escalar.</p>
-
-        <p>Para a maioria dos negócios locais em Portugal, este processo leva entre 30 e 60 dias para estar funcional e a gerar resultados mensuráveis.</p>
-      </div>
+      <div id="art-body" class="art-body"></div>
 
       <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);">
         <div class="cta-box">
@@ -771,20 +674,9 @@
         </div>
       </div>
 
-      <div class="related-section">
+      <div id="art-related-section" class="related-section">
         <h3>Artigos relacionados</h3>
-        <div class="related-grid">
-          <div class="post-card" onclick="goPage('artigo')">
-            <span class="tag tag-auto">Automações</span>
-            <h4>CRM para autônomos: como estruturar sem gastar uma fortuna</h4>
-            <div class="post-meta" style="margin-top: 0.5rem;">10 Abr 2025 · 6 min</div>
-          </div>
-          <div class="post-card" onclick="goPage('artigo')">
-            <span class="tag tag-mkt">Marketing</span>
-            <h4>Follow-up que não parece follow-up: a arte de manter o cliente interessado</h4>
-            <div class="post-meta" style="margin-top: 0.5rem;">18 Abr 2025 · 4 min</div>
-          </div>
-        </div>
+        <div id="art-related" class="related-grid"></div>
       </div>
     </div>
   </div>
@@ -807,113 +699,7 @@
       <h2>Categorias</h2>
       <p>Todos os artigos organizados por tema — encontra o que é mais relevante para o teu negócio agora.</p>
 
-      <div class="cat-block">
-        <div class="cat-head">
-          <div class="cat-head-left">
-            <span class="tag tag-ia">Inteligência Artificial</span>
-            <span>IA aplicada a negócios reais</span>
-          </div>
-          <span class="cat-count">8 artigos</span>
-        </div>
-        <div class="cat-items">
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Como a IA está a mudar o jogo para negócios locais em 2025</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Agentes de IA para vendas: o que é real e o que ainda é promessa</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>ChatGPT vs Claude: qual usar no dia a dia do seu negócio</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Como usar IA para criar conteúdo que converte sem soar genérico</span>
-            <span class="arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head">
-          <div class="cat-head-left">
-            <span class="tag tag-mkt">Marketing Digital</span>
-            <span>Estratégias que geram clientes reais</span>
-          </div>
-          <span class="cat-count">12 artigos</span>
-        </div>
-        <div class="cat-items">
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Follow-up que não parece follow-up: a arte de manter o cliente interessado</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Tráfego pago para negócios locais: onde investir com orçamento limitado</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>O funil de vendas que funciona para consultores independentes</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Google Meu Negócio: o guia completo para negócios locais em Portugal</span>
-            <span class="arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head">
-          <div class="cat-head-left">
-            <span class="tag tag-auto">Automações</span>
-            <span>Sistemas que trabalham por si</span>
-          </div>
-          <span class="cat-count">7 artigos</span>
-        </div>
-        <div class="cat-items">
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>CRM para autônomos: como estruturar sem gastar uma fortuna</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>WhatsApp Business + automação: guia prático para pequenas empresas</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Make vs Zapier: qual escolher para automatizar o seu negócio local</span>
-            <span class="arrow">→</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cat-block">
-        <div class="cat-head">
-          <div class="cat-head-left">
-            <span class="tag tag-neg">Estratégia de Negócios</span>
-            <span>Decisões que mudam resultados</span>
-          </div>
-          <span class="cat-count">9 artigos</span>
-        </div>
-        <div class="cat-items">
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Proposta comercial que convence: estrutura para consultores independentes</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Precificação para serviços de consultoria: o guia honesto</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Como qualificar um lead antes da primeira reunião (e parar de perder tempo)</span>
-            <span class="arrow">→</span>
-          </div>
-          <div class="cat-item" onclick="goPage('artigo')">
-            <span>Caso prático: como um negócio local triplicou os agendamentos em 90 dias</span>
-            <span class="arrow">→</span>
-          </div>
-        </div>
-      </div>
+      <div id="cats-list"></div>
     </div>
   </div>
 
@@ -1064,19 +850,250 @@
 </div>
 
 <script>
-  function goPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // ─────────────────────────────────────────────────────
+  //  Estado global
+  // ─────────────────────────────────────────────────────
+  let DATA = null;
+  const ORIGINAL_TITLE = document.title;
+  const ORIGINAL_DESC  = document.querySelector('meta[name="description"]').content;
 
-    // update nav active state
+  // page id (interno) ↔ hash (URL)
+  const PAGE_TO_HASH = {
+    home:    '#/',
+    cats:    '#/categorias',
+    sobre:   '#/sobre',
+    contact: '#/contacto'
+  };
+  const HASH_TO_PAGE = {
+    '':            'home',
+    '/':           'home',
+    '/categorias': 'cats',
+    '/sobre':      'sobre',
+    '/contacto':   'contact'
+  };
+
+  // ─────────────────────────────────────────────────────
+  //  Helpers
+  // ─────────────────────────────────────────────────────
+  const MONTHS_PT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  function fmtDate(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    return d + ' ' + MONTHS_PT[m - 1] + ' ' + y;
+  }
+  function initials(name) {
+    return name.split(' ').filter(Boolean).slice(0, 2).map(s => s[0].toUpperCase()).join('');
+  }
+  function publishedPosts() {
+    return DATA.posts.filter(p => p.status !== 'draft');
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Navegação
+  // ─────────────────────────────────────────────────────
+  function goPage(id)        { location.hash = PAGE_TO_HASH[id] || '#/'; }
+  function goArticle(slug)   { location.hash = '#/artigo/' + slug; }
+
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + id);
+    if (target) target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+
     ['home','cats','sobre','contact'].forEach(p => {
       const el = document.getElementById('nav-' + p);
       if (el) el.classList.remove('active');
     });
-    const active = document.getElementById('nav-' + id);
-    if (active) active.classList.add('active');
+    const navActive = document.getElementById('nav-' + id);
+    if (navActive) navActive.classList.add('active');
   }
+
+  async function handleRoute() {
+    const raw = location.hash.replace(/^#/, '');
+    if (raw.startsWith('/artigo/')) {
+      const slug = raw.slice('/artigo/'.length);
+      await renderArticle(slug);
+      return;
+    }
+    const page = HASH_TO_PAGE[raw] || 'home';
+    document.title = ORIGINAL_TITLE;
+    document.querySelector('meta[name="description"]').setAttribute('content', ORIGINAL_DESC);
+    showPage(page);
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Render: HOME
+  // ─────────────────────────────────────────────────────
+  function renderHome() {
+    const posts = publishedPosts().sort((a, b) => b.date.localeCompare(a.date));
+    const featured = posts.find(p => p.featured) || posts[0];
+    const recent = posts.filter(p => p !== featured).slice(0, 6);
+
+    const featEl = document.getElementById('featured-card');
+    if (featured) {
+      const cat = DATA.categories[featured.category];
+      featEl.innerHTML = `
+        <div>
+          <span class="tag ${cat.tagClass}">${cat.name}</span>
+          <h2>${featured.title}</h2>
+          <p class="post-meta">${featured.author} · ${fmtDate(featured.date)} · ${featured.readTime}</p>
+          <p>${featured.excerpt}</p>
+          <div class="mid-cta">
+            <p>Quer aplicar isto no seu negócio? Fale com Daniel numa reunião sem compromisso.</p>
+            <button class="btn-primary" onclick="event.stopPropagation(); goPage('contact')">Agendar →</button>
+          </div>
+          <a class="read-link">Ler artigo completo →</a>
+        </div>
+        <div class="feat-thumb">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="14" stroke="currentColor" stroke-width="1.5" /><path d="M13 19h12M19 13v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+          <span>Imagem</span>
+        </div>
+      `;
+      featEl.onclick = () => goArticle(featured.slug);
+    }
+
+    const gridEl = document.getElementById('posts-grid');
+    gridEl.innerHTML = recent.map(p => {
+      const c = DATA.categories[p.category];
+      return `
+        <div class="post-card" onclick="goArticle('${p.slug}')">
+          <span class="tag ${c.tagClass}">${c.name}</span>
+          <h4>${p.title}</h4>
+          <p>${p.excerpt}</p>
+          <div class="post-meta">${fmtDate(p.date)} · ${p.readTime}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Render: CATEGORIAS
+  // ─────────────────────────────────────────────────────
+  function renderCategories() {
+    const container = document.getElementById('cats-list');
+    container.innerHTML = Object.entries(DATA.categories).map(([slug, cat]) => {
+      const items = DATA.posts
+        .filter(p => p.category === slug)
+        .sort((a, b) => {
+          const aDraft = a.status === 'draft', bDraft = b.status === 'draft';
+          if (aDraft !== bDraft) return aDraft ? 1 : -1;
+          if (aDraft && bDraft) return 0;
+          return b.date.localeCompare(a.date);
+        });
+
+      const itemsHtml = items.map(p => {
+        if (p.status === 'draft') {
+          return `
+            <div class="cat-item" style="cursor: default; opacity: 0.5;">
+              <span>${p.title}</span>
+              <span style="font-size: 10px; color: var(--text-3); letter-spacing: 1.5px; text-transform: uppercase;">Em breve</span>
+            </div>
+          `;
+        }
+        return `
+          <div class="cat-item" onclick="goArticle('${p.slug}')">
+            <span>${p.title}</span>
+            <span class="arrow">→</span>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="cat-block">
+          <div class="cat-head">
+            <div class="cat-head-left">
+              <span class="tag ${cat.tagClass}">${cat.name}</span>
+              <span>${cat.subtitle}</span>
+            </div>
+            <span class="cat-count">${items.length} artigo${items.length === 1 ? '' : 's'}</span>
+          </div>
+          <div class="cat-items">${itemsHtml}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Render: ARTIGO
+  // ─────────────────────────────────────────────────────
+  async function renderArticle(slug) {
+    const post = DATA.posts.find(p => p.slug === slug);
+    if (!post || post.status === 'draft') {
+      location.hash = '#/';
+      return;
+    }
+    const cat = DATA.categories[post.category];
+
+    const tagEl = document.getElementById('art-tag');
+    tagEl.className = 'tag ' + cat.tagClass;
+    tagEl.textContent = cat.name;
+    document.getElementById('art-title').textContent    = post.title;
+    document.getElementById('art-lead').textContent     = post.excerpt;
+    document.getElementById('art-author').textContent   = post.author;
+    document.getElementById('art-date').textContent     = fmtDate(post.date);
+    document.getElementById('art-readtime').textContent = post.readTime;
+    document.getElementById('art-avatar').textContent   = initials(post.author);
+
+    const body = document.getElementById('art-body');
+    body.innerHTML = '<p style="color: var(--text-3);">A carregar…</p>';
+    showPage('artigo');
+
+    try {
+      const res = await fetch('articles/' + slug + '.html', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      body.innerHTML = await res.text();
+    } catch (e) {
+      body.innerHTML = '<p>Não foi possível carregar este artigo. Verifica a ligação ou tenta novamente.</p>';
+    }
+
+    document.title = post.title + ' · Daniel França';
+    document.querySelector('meta[name="description"]').setAttribute('content', post.excerpt);
+
+    renderRelated(post);
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  function renderRelated(currentPost) {
+    const related = publishedPosts()
+      .filter(p => p.category === currentPost.category && p.slug !== currentPost.slug)
+      .sort((a, b) => b.date.localeCompare(a.date))
+      .slice(0, 2);
+
+    const section = document.getElementById('art-related-section');
+    const grid = document.getElementById('art-related');
+    if (related.length === 0) { section.style.display = 'none'; return; }
+    section.style.display = '';
+    grid.innerHTML = related.map(p => {
+      const c = DATA.categories[p.category];
+      const readShort = (p.readTime || '').replace(' de leitura', '');
+      return `
+        <div class="post-card" onclick="goArticle('${p.slug}')">
+          <span class="tag ${c.tagClass}">${c.name}</span>
+          <h4>${p.title}</h4>
+          <div class="post-meta" style="margin-top: 0.5rem;">${fmtDate(p.date)} · ${readShort}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Bootstrap
+  // ─────────────────────────────────────────────────────
+  async function init() {
+    try {
+      const res = await fetch('posts.json', { cache: 'no-cache' });
+      DATA = await res.json();
+    } catch (e) {
+      document.getElementById('posts-grid').innerHTML =
+        '<p style="color: var(--text-3);">Erro a carregar posts.json. Se estás a abrir o ficheiro localmente, usa um servidor (ex.: <code>python -m http.server</code>).</p>';
+      return;
+    }
+    renderHome();
+    renderCategories();
+    await handleRoute();
+    window.addEventListener('hashchange', handleRoute);
+  }
+  init();
 </script>
 </body>
 </html>
