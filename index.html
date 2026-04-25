@@ -628,11 +628,13 @@
   <div class="nl-section fade-up-4">
     <h3>Recebe os artigos em primeira mão</h3>
     <p>Conteúdo novo sempre que há algo relevante para partilhar. Sem spam, sem frequência forçada.</p>
-    <div class="nl-form">
-      <input type="email" placeholder="o.teu@email.com" />
-      <button class="btn-primary">Subscrever</button>
-    </div>
-    <p class="nl-trust">Sem spam. Podes cancelar a qualquer momento.</p>
+    <form class="nl-form" id="newsletter-form" onsubmit="return submitNewsletter(event)">
+      <input type="email" name="fields[email]" placeholder="o.teu@email.com" required aria-label="Email" />
+      <input type="hidden" name="ml-submit" value="1" />
+      <input type="hidden" name="anticsrf" value="true" />
+      <button type="submit" class="btn-primary">Subscrever</button>
+    </form>
+    <p class="nl-trust" id="newsletter-status">Sem spam. Podes cancelar a qualquer momento.</p>
   </div>
 
   <footer class="footer">
@@ -1122,6 +1124,39 @@
     } finally {
       button.disabled = false;
       button.textContent = original;
+    }
+    return false;
+  }
+
+  async function submitNewsletter(e) {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById('newsletter-status');
+    const button = form.querySelector('button[type="submit"]');
+    const email = form.querySelector('input[name="fields[email]"]').value;
+    const original = button.textContent;
+    button.disabled = true;
+    button.textContent = 'A subscrever…';
+
+    try {
+      await fetch('https://assets.mailerlite.com/jsonp/2293057/forms/185734002680792448/subscribe', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'fields[email]': email,
+          'ml-submit': '1',
+          'anticsrf': 'true'
+        }).toString()
+      });
+      form.style.display = 'none';
+      status.textContent = 'Obrigado! Verifique o seu email para confirmar a subscrição.';
+      status.style.color = 'var(--text-1)';
+    } catch (err) {
+      button.disabled = false;
+      button.textContent = original;
+      status.textContent = 'Algo correu mal. Tente novamente.';
+      status.style.color = '#C84A3A';
     }
     return false;
   }

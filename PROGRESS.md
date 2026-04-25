@@ -2,7 +2,7 @@
 
 ## Última sessão
 Data: 2026-04-25
-Commits: config: formulário de contacto ligado ao Web3Forms
+Commits: config: newsletter ligada ao MailerLite
 
 ## Feito
 - Sistema dinâmico de posts (posts.json + articles/)
@@ -14,9 +14,9 @@ Commits: config: formulário de contacto ligado ao Web3Forms
 - build-sitemap.js para regenerar sitemap
 - ARTICLE_TEMPLATE.html como referência de formato
 - Web3Forms ligado ao formulário de contacto (AJAX, feedback inline, honeypot anti-spam)
+- MailerLite ligado à newsletter (AJAX no-cors, mantém identidade visual existente)
 
 ## A fazer (por ordem)
-- [ ] MailerLite: newsletter (aguarda embed code)
 - [ ] Imagens reais (foto perfil, thumbnails por categoria)
 - [ ] Conteúdo real dos 6 artigos rascunho
 - [ ] Publicar: GitHub Pages + Cloudflare DNS
@@ -24,7 +24,7 @@ Commits: config: formulário de contacto ligado ao Web3Forms
 ## Serviços externos
 - Calendly: https://calendly.com/danielfrancadigital/30min
 - Web3Forms: access key 967f0713-8b14-4ec4-bdf1-e3b16ee2483e (ligado)
-- MailerLite: aguarda embed code
+- MailerLite: form 185734002680792448, account 2293057 (ligado)
 
 ## Artigos
 | Slug | Estado |
