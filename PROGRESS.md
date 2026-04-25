@@ -1,8 +1,8 @@
 # PROGRESS.md — Estado do projecto blog-danielesfranca
 
 ## Última sessão
-Data: 2026-04-24
-Commits: 5f77403 seo: sitemap.xml com URLs canónicos
+Data: 2026-04-25
+Commits: config: formulário de contacto ligado ao Web3Forms
 
 ## Feito
 - Sistema dinâmico de posts (posts.json + articles/)
@@ -13,9 +13,9 @@ Commits: 5f77403 seo: sitemap.xml com URLs canónicos
 - favicon.svg, robots.txt, sitemap.xml, CNAME
 - build-sitemap.js para regenerar sitemap
 - ARTICLE_TEMPLATE.html como referência de formato
+- Web3Forms ligado ao formulário de contacto (AJAX, feedback inline, honeypot anti-spam)
 
 ## A fazer (por ordem)
-- [ ] Web3Forms: formulário de contacto (aguarda access key)
 - [ ] MailerLite: newsletter (aguarda embed code)
 - [ ] Imagens reais (foto perfil, thumbnails por categoria)
 - [ ] Conteúdo real dos 6 artigos rascunho
@@ -23,7 +23,7 @@ Commits: 5f77403 seo: sitemap.xml com URLs canónicos
 
 ## Serviços externos
 - Calendly: https://calendly.com/danielfrancadigital/30min
-- Web3Forms: aguarda access key
+- Web3Forms: access key 967f0713-8b14-4ec4-bdf1-e3b16ee2483e (ligado)
 - MailerLite: aguarda embed code
 
 ## Artigos

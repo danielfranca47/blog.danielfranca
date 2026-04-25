@@ -779,24 +779,29 @@
       <p>Tem um projeto, uma dúvida ou quer perceber como posso ajudar o seu negócio? Preencha o formulário ou agende diretamente uma reunião de 30 minutos.</p>
 
       <div class="contact-grid">
-        <div>
+        <form id="contact-form" onsubmit="return submitContact(event)">
+          <input type="hidden" name="access_key" value="967f0713-8b14-4ec4-bdf1-e3b16ee2483e" />
+          <input type="hidden" name="subject" value="Novo contacto via blog.danielesfranca.pt" />
+          <input type="hidden" name="from_name" value="Blog Daniel França" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
           <div class="form-row">
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" placeholder="O seu nome" />
+              <input type="text" name="name" placeholder="O seu nome" required />
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" placeholder="email@exemplo.com" />
+              <input type="email" name="email" placeholder="email@exemplo.com" required />
             </div>
           </div>
           <div class="form-group">
             <label>Empresa / Negócio</label>
-            <input type="text" placeholder="Nome do seu negócio ou projecto" />
+            <input type="text" name="empresa" placeholder="Nome do seu negócio ou projecto" />
           </div>
           <div class="form-group">
             <label>Assunto</label>
-            <select>
+            <select name="assunto">
               <option value="">Selecione o tema</option>
               <option>Marketing Digital & Tráfego Pago</option>
               <option>Automações & CRM</option>
@@ -808,10 +813,11 @@
           </div>
           <div class="form-group">
             <label>Mensagem</label>
-            <textarea placeholder="Conte-me um pouco sobre o seu negócio e o que precisa. Quanto mais contexto me der, mais útil posso ser na reunião..."></textarea>
+            <textarea name="mensagem" placeholder="Conte-me um pouco sobre o seu negócio e o que precisa. Quanto mais contexto me der, mais útil posso ser na reunião..." required></textarea>
           </div>
-          <button class="btn-primary">Enviar mensagem</button>
-        </div>
+          <button type="submit" class="btn-primary">Enviar mensagem</button>
+          <p id="contact-status" style="margin-top: 14px; font-size: 13px; color: var(--text-2); min-height: 1em;"></p>
+        </form>
 
         <div class="contact-sidebar">
           <div class="sidebar-cta">
@@ -1079,6 +1085,45 @@
         </div>
       `;
     }).join('');
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Formulários
+  // ─────────────────────────────────────────────────────
+  async function submitContact(e) {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById('contact-status');
+    const button = form.querySelector('button[type="submit"]');
+    const original = button.textContent;
+    button.disabled = true;
+    button.textContent = 'A enviar…';
+    status.style.color = 'var(--text-2)';
+    status.textContent = '';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.reset();
+        status.style.color = '#2D8A52';
+        status.textContent = 'Mensagem enviada. Respondo em 24h úteis.';
+      } else {
+        status.style.color = '#C84A3A';
+        status.textContent = data.message || 'Não foi possível enviar. Tente novamente.';
+      }
+    } catch (err) {
+      status.style.color = '#C84A3A';
+      status.textContent = 'Erro de ligação. Verifique a internet e tente novamente.';
+    } finally {
+      button.disabled = false;
+      button.textContent = original;
+    }
+    return false;
   }
 
   // ─────────────────────────────────────────────────────
