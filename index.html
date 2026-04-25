@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel França · Insights & Estratégia Digital</title>
+  <meta name="description" content="Conteúdo prático sobre marketing digital, automações, inteligência artificial e estratégia comercial para empreendedores e negócios locais." />
+  <meta property="og:title" content="Daniel França · Insights & Estratégia Digital" />
+  <meta property="og:description" content="Marketing digital, IA e automações para empreendedores que querem crescer com inteligência." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg:        #FDFAF6;
+      --bg-card:   #FFFFFF;
+      --bg-warm:   #FEF3E4;
+      --border:    #EDE8DF;
+      --border-md: #D4C5AF;
+      --text-1:    #1C1A17;
+      --text-2:    #6B6050;
+      --text-3:    #A89880;
+      --amber:     #C8873A;
+      --amber-dk:  #A86C28;
+      --amber-lt:  #F5D9AA;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --shadow-sm: 0 1px 4px rgba(28,26,23,0.06);
+      --shadow-md: 0 4px 16px rgba(28,26,23,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-1);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.5s ease both; }
+    .fade-up-2 { animation: fadeUp 0.5s 0.1s ease both; }
+    .fade-up-3 { animation: fadeUp 0.5s 0.2s ease both; }
+    .fade-up-4 { animation: fadeUp 0.5s 0.3s ease both; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(253,250,246,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { cursor: pointer; display: flex; flex-direction: column; line-height: 1.15; }
+    .nav-logo-name {
+      font-family: 'Lora', serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--text-1); letter-spacing: -0.2px;
+    }
+    .nav-logo-sub {
+      font-size: 9.5px; font-weight: 300;
+      letter-spacing: 2.8px; text-transform: uppercase;
+      color: var(--text-3);
+    }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+    .nav-links a {
+      font-size: 13.5px; color: var(--text-2);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text-1); }
+    .nav-links a.active { color: var(--text-1); font-weight: 500; }
+    .btn-nav {
+      background: var(--amber) !important;
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: var(--radius-xl);
+      font-size: 13px !important; font-weight: 500 !important;
+      transition: background 0.15s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-nav:hover { background: var(--amber-dk) !important; transform: translateY(-1px); }
+
+    /* ─── PAGES ─── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ─── CONTAINER ─── */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+    .container-narrow { max-width: 640px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ─── TAGS ─── */
+    .tag {
+      display: inline-block;
+      font-size: 10.5px; font-weight: 500;
+      padding: 3px 11px; border-radius: var(--radius-xl);
+    }
+    .tag-ia    { background: #EEF4FF; color: #3A67C8; border: 1px solid #C5D6F8; }
+    .tag-mkt   { background: #F0FAF4; color: #2D8A52; border: 1px solid #B4E4C5; }
+    .tag-auto  { background: var(--bg-warm); color: #9A6120; border: 1px solid var(--amber-lt); }
+    .tag-neg   { background: #F5F0FF; color: #6E44C8; border: 1px solid #D5C5F8; }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--amber); color: #fff;
+      padding: 10px 24px; border-radius: var(--radius-xl);
+      font-size: 14px; font-weight: 500;
+      border: none; cursor: pointer;
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-primary:hover {
+      background: var(--amber-dk);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; color: var(--amber);
+      padding: 9px 22px; border-radius: var(--radius-xl);
+      font-size: 13.5px; font-weight: 500;
+      border: 1.5px solid var(--amber); cursor: pointer;
+      transition: all 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline:hover {
+      background: var(--amber); color: #fff;
+      transform: translateY(-1px);
+    }
+    .read-link {
+      font-size: 13.5px; font-weight: 500; color: var(--amber);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+      transition: gap 0.2s;
+    }
+    .read-link:hover { gap: 8px; }
+
+    /* ─── DIVIDER ─── */
+    .divider { border: none; border-top: 1px solid var(--border); }
+    .section-label {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 1.25rem;
+    }
+    .section-label span {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-3);
+      white-space: nowrap;
+    }
+    .section-label hr { flex: 1; border: none; border-top: 1px solid var(--border); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+    }
+    .footer-inner {
+      max-width: 720px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+    .footer-inner span, .footer-inner a { font-size: 12px; color: var(--text-3); }
+    .footer-inner a:hover { color: var(--text-2); }
+
+    /* ══════════════════════════════════
+       HOME PAGE
+    ══════════════════════════════════ */
+    .hero {
+      padding: 4.5rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--bg-warm);
+      border: 1px solid var(--amber-lt);
+      color: #9A6120;
+      font-size: 10.5px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 16px; border-radius: var(--radius-xl);
+      margin-bottom: 1.5rem;
+    }
+    .hero-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700; line-height: 1.2;
+      letter-spacing: -0.4px; color: var(--text-1);
+      max-width: 560px; margin: 0 auto 1rem;
+    }
+    .hero p {
+      font-size: 15.5px; line-height: 1.75; color: var(--text-2);
+      max-width: 480px; margin: 0 auto 2rem;
+    }
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* Featured */
+    .featured-wrap { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+    .featured-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2rem 2rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 130px;
+      gap: 2rem; align-items: start;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .featured-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-md); }
+    .featured-card h2 {
+      font-family: 'Lora', serif;
+      font-size: 22px; font-weight: 700;
+      line-height: 1.3; color: var(--text-1);
+      margin: 0.6rem 0 0.65rem;
+    }
+    .featured-card p {
+      font-size: 14px; line-height: 1.65; color: var(--text-2);
+      margin-bottom: 1.25rem;
+    }
+    .post-meta { font-size: 11.5px; color: var(--text-3); margin-bottom: 1rem; }
+
+    .feat-thumb {
+      width: 130px; height: 130px;
+      background: var(--bg-warm);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--amber-lt);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      flex-shrink: 0; color: var(--amber);
+    }
+    .feat-thumb span { font-size: 10px; color: var(--text-3); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Mid-article CTA strip */
+    .mid-cta {
+      background: var(--bg-warm);
+      border: 1px solid var(--amber-lt);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+    .mid-cta p { font-size: 13.5px; color: #7A4D10; font-weight: 500; flex: 1; min-width: 200px; }
+
+    /* Posts grid */
+    .sec-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .sec-header h3 {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-3);
+    }
+    .sec-header a { font-size: 12.5px; color: var(--amber); cursor: pointer; }
+    .sec-header a:hover { color: var(--amber-dk); }
+
+    .posts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .post-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+      cursor: pointer;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+    .post-card:hover {
+      border-color: var(--border-md);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .post-card h4 {
+      font-family: 'Lora', serif;
+      font-size: 15.5px; font-weight: 600;
+      line-height: 1.4; color: var(--text-1);
+      margin: 0.5rem 0 0.55rem;
+    }
+    .post-card p { font-size: 13px; line-height: 1.6; color: var(--text-2); margin-bottom: 1rem; }
+
+    /* Newsletter */
+    .nl-section {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--amber-lt);
+      border-bottom: 1px solid var(--amber-lt);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+    .nl-section h3 {
+      font-family: 'Lora', serif;
+      font-size: 22px; font-weight: 700; color: var(--text-1);
+      margin-bottom: 0.5rem;
+    }
+    .nl-section p { font-size: 14px; color: var(--text-2); margin-bottom: 1.5rem; }
+    .nl-form { display: flex; gap: 8px; justify-content: center; max-width: 400px; margin: 0 auto; }
+    .nl-form input {
+      flex: 1; padding: 10px 16px; font-size: 14px;
+      border: 1px solid var(--border-md);
+      border-radius: var(--radius-xl);
+      background: #fff; color: var(--text-1);
+      outline: none; font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.15s;
+    }
+    .nl-form input:focus { border-color: var(--amber); }
+    .nl-trust { margin-top: 0.75rem; font-size: 11.5px; color: var(--text-3); }
+
+    /* ══════════════════════════════════
+       ARTICLE PAGE
+    ══════════════════════════════════ */
+    .art-wrap { padding: 3rem 0; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 13px; color: var(--text-3);
+      cursor: pointer; margin-bottom: 1.5rem;
+      transition: color 0.15s;
+    }
+    .back-btn:hover { color: var(--text-2); }
+    .art-wrap h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(24px, 4vw, 30px);
+      font-weight: 700; line-height: 1.25;
+      color: var(--text-1); margin: 0.75rem 0 0.85rem;
+    }
+    .art-lead { font-size: 16px; line-height: 1.7; color: var(--text-2); margin-bottom: 0.85rem; }
+    .art-meta {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; color: var(--text-3);
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .art-meta .author-chip {
+      display: flex; align-items: center; gap: 7px;
+    }
+    .author-avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--bg-warm);
+      border: 1px solid var(--amber-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-size: 10px; font-weight: 700;
+      color: var(--amber);
+    }
+
+    .art-body { font-size: 15.5px; line-height: 1.85; }
+    .art-body p { color: var(--text-2); margin-bottom: 1.4rem; }
+    .art-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 21px; font-weight: 700;
+      color: var(--text-1); margin: 2.5rem 0 0.85rem;
+    }
+    .art-body h3 {
+      font-family: 'Lora', serif;
+      font-size: 17px; font-weight: 600;
+      color: var(--text-1); margin: 1.75rem 0 0.65rem;
+    }
+    .art-body strong { color: var(--text-1); font-weight: 500; }
+    .art-body ul { padding-left: 1.4rem; margin-bottom: 1.25rem; }
+    .art-body ul li { color: var(--text-2); margin-bottom: 0.4rem; }
+    .art-body blockquote {
+      border-left: 3px solid var(--amber);
+      padding: 0.85rem 1.4rem;
+      margin: 2rem 0;
+      background: var(--bg-warm);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-style: italic; color: #7A4D10;
+      font-size: 15px; line-height: 1.7;
+    }
+
+    /* CTA box */
+    .cta-box {
+      background: var(--bg-warm);
+      border: 1px solid var(--amber-lt);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+    .cta-box h4 {
+      font-family: 'Lora', serif;
+      font-size: 17px; font-weight: 700;
+      color: #7A4D10; margin-bottom: 0.4rem;
+    }
+    .cta-box p { font-size: 13.5px; color: #9A6120; line-height: 1.6; margin-bottom: 1.1rem; }
+
+    /* Related posts */
+    .related-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related-section h3 {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-3);
+      margin-bottom: 1.25rem;
+    }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* ══════════════════════════════════
+       CATEGORIAS
+    ══════════════════════════════════ */
+    .cats-wrap { padding: 3rem 0; }
+    .cats-wrap h2 {
+      font-family: 'Lora', serif;
+      font-size: 26px; font-weight: 700; color: var(--text-1);
+      margin-bottom: 0.4rem;
+    }
+    .cats-wrap > p { font-size: 14px; color: var(--text-2); margin-bottom: 2rem; }
+
+    .cat-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden; margin-bottom: 10px;
+      transition: border-color 0.15s;
+    }
+    .cat-block:hover { border-color: var(--border-md); }
+    .cat-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.3rem;
+    }
+    .cat-head-left { display: flex; align-items: center; gap: 12px; }
+    .cat-head-left span:last-child { font-size: 14px; font-weight: 500; color: var(--text-1); }
+    .cat-count { font-size: 12px; color: var(--text-3); }
+    .cat-items { border-top: 1px solid var(--border); }
+    .cat-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 1.3rem;
+      font-size: 13.5px; color: var(--text-2);
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s, padding-left 0.15s;
+    }
+    .cat-item:last-child { border-bottom: none; }
+    .cat-item:hover { color: var(--text-1); background: var(--bg); padding-left: 1.6rem; }
+    .cat-item .arrow { color: var(--amber); font-size: 12px; flex-shrink: 0; }
+
+    /* ══════════════════════════════════
+       SOBRE MIM
+    ══════════════════════════════════ */
+    .sobre-wrap { padding: 3rem 0; }
+    .sobre-top {
+      display: flex; align-items: flex-start; gap: 1.75rem;
+      margin-bottom: 2.5rem; padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .avatar-lg {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--bg-warm);
+      border: 2px solid var(--amber-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 24px; font-weight: 700;
+      color: var(--amber); flex-shrink: 0;
+    }
+    .sobre-top h2 {
+      font-family: 'Lora', serif;
+      font-size: 24px; font-weight: 700; color: var(--text-1);
+      margin-bottom: 4px;
+    }
+    .sobre-top .tagline { font-size: 13.5px; color: var(--text-2); margin-bottom: 0.75rem; }
+    .sobre-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+    .badge {
+      font-size: 11px; font-weight: 500;
+      background: var(--bg); border: 1px solid var(--border-md);
+      color: var(--text-2); padding: 3px 10px;
+      border-radius: var(--radius-xl);
+    }
+
+    .sobre-body { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+    .sobre-body p { font-size: 15px; line-height: 1.8; color: var(--text-2); margin-bottom: 1.25rem; }
+    .sobre-body strong { color: var(--text-1); font-weight: 500; }
+    .sobre-body a { color: var(--amber); font-weight: 500; cursor: pointer; }
+    .sobre-body a:hover { color: var(--amber-dk); }
+
+    .expertise-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      position: sticky; top: 80px;
+    }
+    .expertise-card h4 {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-3);
+      margin-bottom: 1rem;
+    }
+    .exp-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px; color: var(--text-1);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ══════════════════════════════════
+       CONTATO
+    ══════════════════════════════════ */
+    .contact-wrap { padding: 3rem 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: start; }
+    .contact-wrap h2 {
+      font-family: 'Lora', serif;
+      font-size: 26px; font-weight: 700; color: var(--text-1); margin-bottom: 0.4rem;
+    }
+    .contact-wrap > p { font-size: 14.5px; color: var(--text-2); margin-bottom: 2rem; line-height: 1.7; }
+
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .form-group label {
+      font-size: 11px; font-weight: 500;
+      color: var(--text-3); letter-spacing: 1px; text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 10px 14px;
+      border: 1px solid var(--border-md);
+      border-radius: var(--radius-sm);
+      font-size: 14px; font-family: 'DM Sans', sans-serif;
+      color: var(--text-1); background: #fff; outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(200,135,58,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .contact-sidebar { position: sticky; top: 80px; }
+    .sidebar-cta {
+      background: var(--bg-warm);
+      border: 1px solid var(--amber-lt);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .sidebar-cta h4 {
+      font-family: 'Lora', serif;
+      font-size: 16px; font-weight: 700; color: #7A4D10; margin-bottom: 0.4rem;
+    }
+    .sidebar-cta p { font-size: 13px; color: #9A6120; line-height: 1.6; margin-bottom: 1.1rem; }
+    .sidebar-info {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+    .sidebar-info h4 {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--text-3);
+      margin-bottom: 0.85rem;
+    }
+    .info-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 13px; color: var(--text-2); margin-bottom: 0.75rem;
+    }
+    .info-row span:first-child { color: var(--amber); font-size: 14px; flex-shrink: 0; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 700px) {
+      .nav-links .hide-mobile { display: none; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .featured-card { grid-template-columns: 1fr; }
+      .feat-thumb { display: none; }
+      .sobre-body { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .mid-cta { flex-direction: column; }
+      .sobre-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <div class="nav-logo" onclick="goPage('home')">
+    <span class="nav-logo-name">Daniel França</span>
+    <span class="nav-logo-sub">Insights & Estratégia</span>
+  </div>
+  <div class="nav-links">
+    <a class="hide-mobile active" id="nav-home" onclick="goPage('home')">Início</a>
+    <a class="hide-mobile" id="nav-cats" onclick="goPage('cats')">Categorias</a>
+    <a class="hide-mobile" id="nav-sobre" onclick="goPage('sobre')">Sobre mim</a>
+    <a class="btn-nav" onclick="goPage('contact')">Agendar reunião</a>
+  </div>
+</nav>
+
+<!-- ══════════════════ HOME ══════════════════ -->
+<div id="page-home" class="page active">
+  <div class="hero fade-up">
+    <div class="hero-pill">Estratégia · IA · Marketing Digital</div>
+    <h1>Ideias que transformam negócios locais</h1>
+    <p>Conteúdo prático sobre marketing digital, automações, inteligência artificial e estratégia comercial — para empreendedores que querem crescer com inteligência.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="goPage('cats')">Explorar artigos</button>
+      <button class="btn-outline" onclick="goPage('contact')">Falar com Daniel</button>
+    </div>
+  </div>
+
+  <div style="padding: 3rem 0; border-bottom: 1px solid var(--border);">
+    <div class="container fade-up-2">
+      <div class="section-label"><span>Em destaque</span><hr /></div>
+      <div class="featured-card" onclick="goPage('artigo')">
+        <div>
+          <span class="tag tag-ia">Inteligência Artificial</span>
+          <h2>Como a IA está a mudar o jogo para negócios locais em 2025</h2>
+          <p class="post-meta">Daniel França · 24 Abr 2025 · 5 min de leitura</p>
+          <p>Ferramentas que até há pouco eram exclusivas de grandes empresas estão agora ao alcance de qualquer empreendedor — e os que souberem usá-las primeiro vão ter vantagem real no mercado.</p>
+
+          <!-- MID-ARTICLE CTA (inline preview) -->
+          <div class="mid-cta">
+            <p>Quer aplicar isto no seu negócio? Fale com Daniel numa reunião sem compromisso.</p>
+            <button class="btn-primary" onclick="event.stopPropagation(); goPage('contact')">Agendar →</button>
+          </div>
+
+          <a class="read-link" onclick="goPage('artigo')">Ler artigo completo →</a>
+        </div>
+        <div class="feat-thumb">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="14" stroke="currentColor" stroke-width="1.5" /><path d="M13 19h12M19 13v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+          <span>Imagem</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 3rem 0; border-bottom: 1px solid var(--border);">
+    <div class="container fade-up-3">
+      <div class="sec-header">
+        <h3>Artigos recentes</h3>
+        <a onclick="goPage('cats')">Ver todos →</a>
+      </div>
+      <div class="posts-grid">
+        <div class="post-card" onclick="goPage('artigo')">
+          <span class="tag tag-mkt">Marketing</span>
+          <h4>Follow-up que não parece follow-up: a arte de manter o cliente interessado</h4>
+          <p>Como criar contactos de valor após uma reunião sem pressionar — e usar conteúdo estratégico para reaquecer leads.</p>
+          <div class="post-meta">18 Abr 2025 · 4 min de leitura</div>
+        </div>
+        <div class="post-card">
+          <span class="tag tag-auto">Automações</span>
+          <h4>CRM para autônomos: como estruturar sem gastar uma fortuna</h4>
+          <p>Um sistema de gestão de clientes não precisa de ser complexo para funcionar. Veja como estruturar o essencial.</p>
+          <div class="post-meta">10 Abr 2025 · 6 min de leitura</div>
+        </div>
+        <div class="post-card">
+          <span class="tag tag-neg">Estratégia</span>
+          <h4>Proposta comercial que convence: estrutura para consultores independentes</h4>
+          <p>Os elementos que separam uma proposta ignorada de uma que gera resposta — com exemplos práticos.</p>
+          <div class="post-meta">3 Abr 2025 · 5 min de leitura</div>
+        </div>
+        <div class="post-card">
+          <span class="tag tag-ia">Inteligência Artificial</span>
+          <h4>Agentes de IA para vendas: o que é real e o que ainda é promessa</h4>
+          <p>Guia honesto sobre o que os agentes de IA já conseguem fazer no processo comercial — e onde ainda falham.</p>
+          <div class="post-meta">28 Mar 2025 · 7 min de leitura</div>
+        </div>
+        <div class="post-card">
+          <span class="tag tag-mkt">Marketing</span>
+          <h4>Tráfego pago para negócios locais: onde investir com orçamento limitado</h4>
+          <p>Meta Ads ou Google Ads? Como decidir onde colocar o primeiro euro e o que esperar nos primeiros 30 dias.</p>
+          <div class="post-meta">20 Mar 2025 · 5 min de leitura</div>
+        </div>
+        <div class="post-card">
+          <span class="tag tag-auto">Automações</span>
+          <h4>WhatsApp Business + automação: guia prático para pequenas empresas</h4>
+          <p>Como configurar respostas automáticas, funis de conversação e agendamento sem código e sem custos elevados.</p>
+          <div class="post-meta">14 Mar 2025 · 6 min de leitura</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nl-section fade-up-4">
+    <h3>Recebe os artigos em primeira mão</h3>
+    <p>Conteúdo novo sempre que há algo relevante para partilhar. Sem spam, sem frequência forçada.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="o.teu@email.com" />
+      <button class="btn-primary">Subscrever</button>
+    </div>
+    <p class="nl-trust">Sem spam. Podes cancelar a qualquer momento.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Daniel França</span>
+      <a onclick="goPage('sobre')">Sobre mim</a>
+      <a onclick="goPage('cats')">Categorias</a>
+      <a onclick="goPage('contact')">Contacto</a>
+      <span>blog.danielesfranca.pt</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════ ARTIGO ══════════════════ -->
+<div id="page-artigo" class="page">
+  <div class="container-narrow">
+    <div class="art-wrap fade-up">
+      <a class="back-btn" onclick="goPage('home')">← Voltar ao início</a>
+      <span class="tag tag-ia">Inteligência Artificial</span>
+      <h1>Como a IA está a mudar o jogo para negócios locais em 2025</h1>
+      <p class="art-lead">Ferramentas que até há pouco eram exclusivas de grandes empresas estão agora ao alcance de qualquer empreendedor — e os que souberem usá-las primeiro vão ter vantagem real.</p>
+      <div class="art-meta">
+        <div class="author-chip">
+          <div class="author-avatar">DF</div>
+          <span>Daniel França</span>
+        </div>
+        <span>·</span>
+        <span>24 Abr 2025</span>
+        <span>·</span>
+        <span>5 min de leitura</span>
+      </div>
+
+      <div class="art-body">
+        <p>Durante anos, ferramentas de automação, agentes de vendas e análise de dados eram território exclusivo de grandes empresas com orçamentos avultados e equipas técnicas dedicadas. <strong>Isso mudou completamente em 2024 e 2025.</strong></p>
+
+        <p>A democratização da IA generativa abriu portas que antes estavam fechadas. Um consultor individual consegue hoje automatizar o follow-up de clientes, gerar conteúdo estratégico personalizado e ter um agente virtual a responder perguntas — tudo sem código e sem grandes investimentos.</p>
+
+        <blockquote>A vantagem competitiva já não está em ter acesso às ferramentas. Está em saber usá-las antes dos outros no teu mercado.</blockquote>
+
+        <h2>O que mudou concretamente</h2>
+
+        <p>Nos meus projetos com clientes locais — desde clínicas de estética a consultores independentes — tenho visto resultados concretos: redução do tempo de follow-up em 60%, aumento da taxa de resposta em mensagens automatizadas e processos comerciais que antes levavam horas a executar manualmente.</p>
+
+        <p>As principais mudanças que estou a observar no terreno:</p>
+
+        <ul>
+          <li><strong>Automação de follow-up:</strong> sequências de mensagens personalizadas que mantêm o lead quente sem intervenção manual.</li>
+          <li><strong>Geração de conteúdo estratégico:</strong> artigos, posts e emails criados com IA mas com a voz e estratégia do consultor.</li>
+          <li><strong>Qualificação de leads automática:</strong> chatbots que fazem as perguntas certas antes da primeira reunião.</li>
+          <li><strong>CRM inteligente:</strong> sistemas que sugerem o próximo passo com cada cliente com base no histórico.</li>
+        </ul>
+
+        <!-- MID-ARTICLE CTA — posição estratégica a meio do artigo -->
+        <div class="mid-cta">
+          <p>Quer saber como implementar isto no seu negócio específico?</p>
+          <button class="btn-primary" onclick="goPage('contact')">Agendar reunião gratuita →</button>
+        </div>
+
+        <h2>Por onde começar</h2>
+
+        <p>O erro mais comum é tentar implementar tudo de uma vez. A abordagem que recomendo é identificar <strong>um único ponto de dor no processo comercial</strong> e automatizá-lo primeiro. Quando esse processo estiver a funcionar bem, avança para o seguinte.</p>
+
+        <p>Para a maioria dos negócios locais, o ponto de maior impacto é o follow-up pós-reunião. É onde a maioria das vendas se perdem — não por falta de interesse do cliente, mas por falta de acompanhamento estruturado e consistente.</p>
+
+        <h3>Os 3 passos que recomendo</h3>
+
+        <p><strong>1. Mapeares o teu processo atual.</strong> Antes de automatizar, percebes o que já fazes — e o que deixas escapar. Um simples mapa do teu funil de vendas já revela onde estás a perder clientes.</p>
+
+        <p><strong>2. Escolheres uma ferramenta e dominares só ela.</strong> CRM simples, WhatsApp Business com automações básicas, ou uma sequência de email marketing. Uma coisa de cada vez.</p>
+
+        <p><strong>3. Medires o impacto antes de avançares.</strong> Quantos leads passaram pela automação? Quantos responderam? Qual foi a taxa de conversão? Com esses dados, sabes se vale a pena escalar.</p>
+
+        <p>Para a maioria dos negócios locais em Portugal, este processo leva entre 30 e 60 dias para estar funcional e a gerar resultados mensuráveis.</p>
+      </div>
+
+      <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+        <div class="cta-box">
+          <h4>Este artigo foi útil para si?</h4>
+          <p>Se quiser conversar sobre como aplicar estas ideias no seu negócio concreto, estou disponível para uma reunião de 30 minutos sem compromisso. Analisamos juntos a situação e vemos o que faz sentido implementar primeiro.</p>
+          <button class="btn-primary" onclick="goPage('contact')">Agendar reunião gratuita →</button>
+        </div>
+      </div>
+
+      <div class="related-section">
+        <h3>Artigos relacionados</h3>
+        <div class="related-grid">
+          <div class="post-card" onclick="goPage('artigo')">
+            <span class="tag tag-auto">Automações</span>
+            <h4>CRM para autônomos: como estruturar sem gastar uma fortuna</h4>
+            <div class="post-meta" style="margin-top: 0.5rem;">10 Abr 2025 · 6 min</div>
+          </div>
+          <div class="post-card" onclick="goPage('artigo')">
+            <span class="tag tag-mkt">Marketing</span>
+            <h4>Follow-up que não parece follow-up: a arte de manter o cliente interessado</h4>
+            <div class="post-meta" style="margin-top: 0.5rem;">18 Abr 2025 · 4 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Daniel França</span>
+      <a onclick="goPage('home')">Início</a>
+      <a onclick="goPage('cats')">Categorias</a>
+      <a onclick="goPage('contact')">Contacto</a>
+      <span>blog.danielesfranca.pt</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════ CATEGORIAS ══════════════════ -->
+<div id="page-cats" class="page">
+  <div class="container">
+    <div class="cats-wrap fade-up">
+      <h2>Categorias</h2>
+      <p>Todos os artigos organizados por tema — encontra o que é mais relevante para o teu negócio agora.</p>
+
+      <div class="cat-block">
+        <div class="cat-head">
+          <div class="cat-head-left">
+            <span class="tag tag-ia">Inteligência Artificial</span>
+            <span>IA aplicada a negócios reais</span>
+          </div>
+          <span class="cat-count">8 artigos</span>
+        </div>
+        <div class="cat-items">
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Como a IA está a mudar o jogo para negócios locais em 2025</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Agentes de IA para vendas: o que é real e o que ainda é promessa</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>ChatGPT vs Claude: qual usar no dia a dia do seu negócio</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Como usar IA para criar conteúdo que converte sem soar genérico</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-head">
+          <div class="cat-head-left">
+            <span class="tag tag-mkt">Marketing Digital</span>
+            <span>Estratégias que geram clientes reais</span>
+          </div>
+          <span class="cat-count">12 artigos</span>
+        </div>
+        <div class="cat-items">
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Follow-up que não parece follow-up: a arte de manter o cliente interessado</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Tráfego pago para negócios locais: onde investir com orçamento limitado</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>O funil de vendas que funciona para consultores independentes</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Google Meu Negócio: o guia completo para negócios locais em Portugal</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-head">
+          <div class="cat-head-left">
+            <span class="tag tag-auto">Automações</span>
+            <span>Sistemas que trabalham por si</span>
+          </div>
+          <span class="cat-count">7 artigos</span>
+        </div>
+        <div class="cat-items">
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>CRM para autônomos: como estruturar sem gastar uma fortuna</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>WhatsApp Business + automação: guia prático para pequenas empresas</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Make vs Zapier: qual escolher para automatizar o seu negócio local</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-head">
+          <div class="cat-head-left">
+            <span class="tag tag-neg">Estratégia de Negócios</span>
+            <span>Decisões que mudam resultados</span>
+          </div>
+          <span class="cat-count">9 artigos</span>
+        </div>
+        <div class="cat-items">
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Proposta comercial que convence: estrutura para consultores independentes</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Precificação para serviços de consultoria: o guia honesto</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Como qualificar um lead antes da primeira reunião (e parar de perder tempo)</span>
+            <span class="arrow">→</span>
+          </div>
+          <div class="cat-item" onclick="goPage('artigo')">
+            <span>Caso prático: como um negócio local triplicou os agendamentos em 90 dias</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Daniel França</span>
+      <a onclick="goPage('home')">Início</a>
+      <a onclick="goPage('sobre')">Sobre mim</a>
+      <a onclick="goPage('contact')">Contacto</a>
+      <span>blog.danielesfranca.pt</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════ SOBRE MIM ══════════════════ -->
+<div id="page-sobre" class="page">
+  <div class="container">
+    <div class="sobre-wrap fade-up">
+      <div class="sobre-top">
+        <div class="avatar-lg">DF</div>
+        <div>
+          <h2>Daniel França</h2>
+          <p class="tagline">Consultor de Marketing Digital & Estratégia de Negócios · Algarve, Portugal</p>
+          <div class="sobre-badges">
+            <span class="badge">Marketing Digital</span>
+            <span class="badge">Inteligência Artificial</span>
+            <span class="badge">Automações & CRM</span>
+            <span class="badge">Tráfego Pago</span>
+            <span class="badge">Agentes de Vendas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sobre-body">
+        <div>
+          <p>Trabalho com <strong>empreendedores, empresários locais e profissionais independentes</strong> que querem crescer no digital sem depender de grandes agências ou perder tempo com tecnologia que não traz resultado.</p>
+
+          <p>A minha área de atuação cobre desde a estratégia de marketing e tráfego pago até <strong>automações comerciais, implementação de CRM e agentes de inteligência artificial</strong> aplicados ao processo de vendas. Em Portugal, actuei em Lisboa, Porto e Algarve — e trabalho com clientes remotamente em todo o país.</p>
+
+          <p>O que me diferencia não é só o conhecimento técnico — é a <strong>visão de negócio por trás das ferramentas</strong>. Não implemento tecnologia pela tecnologia. Implemento o que efectivamente resolve o problema comercial de cada cliente.</p>
+
+          <p>Este blog nasceu de uma necessidade real: depois das reuniões com potenciais clientes, queria partilhar conteúdo de valor que os ajudasse a avançar — sem pressão, mas com substância. Tornou-se também um espaço para quem está a descobrir estas áreas pela primeira vez.</p>
+
+          <p>Se queres trabalhar em conjunto ou simplesmente trocar ideias, <a onclick="goPage('contact')">entra em contacto aqui →</a></p>
+        </div>
+
+        <div class="expertise-card">
+          <h4>Áreas de expertise</h4>
+          <div class="exp-item"><span class="exp-dot" style="background:#2D8A52"></span>Marketing Digital & Tráfego</div>
+          <div class="exp-item"><span class="exp-dot" style="background:#3A67C8"></span>Inteligência Artificial</div>
+          <div class="exp-item"><span class="exp-dot" style="background:#C8873A"></span>Automações Comerciais</div>
+          <div class="exp-item"><span class="exp-dot" style="background:#6E44C8"></span>CRM & Pipeline de Vendas</div>
+          <div class="exp-item"><span class="exp-dot" style="background:#C84A3A"></span>Agentes de Vendas com IA</div>
+          <div class="exp-item"><span class="exp-dot" style="background:#A89880"></span>Consultoria para PME</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Daniel França</span>
+      <a onclick="goPage('home')">Início</a>
+      <a onclick="goPage('cats')">Categorias</a>
+      <a onclick="goPage('contact')">Contacto</a>
+      <span>blog.danielesfranca.pt</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════ CONTACTO ══════════════════ -->
+<div id="page-contact" class="page">
+  <div class="container">
+    <div class="contact-wrap fade-up">
+      <h2>Vamos falar</h2>
+      <p>Tem um projeto, uma dúvida ou quer perceber como posso ajudar o seu negócio? Preencha o formulário ou agende diretamente uma reunião de 30 minutos.</p>
+
+      <div class="contact-grid">
+        <div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text" placeholder="O seu nome" />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="email@exemplo.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Empresa / Negócio</label>
+            <input type="text" placeholder="Nome do seu negócio ou projecto" />
+          </div>
+          <div class="form-group">
+            <label>Assunto</label>
+            <select>
+              <option value="">Selecione o tema</option>
+              <option>Marketing Digital & Tráfego Pago</option>
+              <option>Automações & CRM</option>
+              <option>Inteligência Artificial aplicada</option>
+              <option>Agentes de Vendas</option>
+              <option>Consultoria de Negócios</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensagem</label>
+            <textarea placeholder="Conte-me um pouco sobre o seu negócio e o que precisa. Quanto mais contexto me der, mais útil posso ser na reunião..."></textarea>
+          </div>
+          <button class="btn-primary">Enviar mensagem</button>
+        </div>
+
+        <div class="contact-sidebar">
+          <div class="sidebar-cta">
+            <h4>Prefere falar diretamente?</h4>
+            <p>Agende uma reunião de 30 minutos sem compromisso. Analisamos juntos a situação do seu negócio e vemos o que faz sentido fazer primeiro.</p>
+            <button class="btn-primary" style="width: 100%; justify-content: center;">Agendar reunião gratuita</button>
+          </div>
+          <div class="sidebar-info">
+            <h4>Informações</h4>
+            <div class="info-row">
+              <span>📍</span>
+              <span>Olhão, Algarve — Portugal<br><small style="color: var(--text-3);">Disponível remotamente em todo o país</small></span>
+            </div>
+            <div class="info-row">
+              <span>⏱</span>
+              <span>Resposta habitual em 24h úteis</span>
+            </div>
+            <div class="info-row">
+              <span>🗓</span>
+              <span>Reuniões online via Google Meet ou Zoom</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2025 Daniel França</span>
+      <a onclick="goPage('home')">Início</a>
+      <a onclick="goPage('cats')">Categorias</a>
+      <a onclick="goPage('sobre')">Sobre mim</a>
+      <span>blog.danielesfranca.pt</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function goPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // update nav active state
+    ['home','cats','sobre','contact'].forEach(p => {
+      const el = document.getElementById('nav-' + p);
+      if (el) el.classList.remove('active');
+    });
+    const active = document.getElementById('nav-' + id);
+    if (active) active.classList.add('active');
+  }
+</script>
+</body>
+</html>
