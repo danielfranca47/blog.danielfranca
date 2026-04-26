@@ -8,6 +8,10 @@
   <meta property="og:title" content="Daniel França · Insights & Estratégia Digital" />
   <meta property="og:description" content="Marketing digital, IA e automações para empreendedores que querem crescer com inteligência." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://blog.danielfranca.pt/images/og-image.webp" />
+  <meta property="og:url" content="https://blog.danielfranca.pt/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://blog.danielfranca.pt/images/og-image.webp" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -658,7 +662,7 @@
       <p id="art-lead" class="art-lead"></p>
       <div class="art-meta">
         <div class="author-chip">
-          <div id="art-avatar" class="author-avatar"></div>
+          <img id="art-avatar" class="author-avatar" src="/images/foto-perfil.webp" alt="Daniel França" style="object-fit: cover;" />
           <span id="art-author"></span>
         </div>
         <span>·</span>
@@ -722,7 +726,7 @@
   <div class="container">
     <div class="sobre-wrap fade-up">
       <div class="sobre-top">
-        <div class="avatar-lg">DF</div>
+        <img class="avatar-lg" src="/images/foto-perfil.webp" alt="Daniel França" style="object-fit: cover;" />
         <div>
           <h2>Daniel França</h2>
           <p class="tagline">Consultor de Marketing Digital & Estratégia de Negócios · Algarve, Portugal</p>
@@ -889,9 +893,6 @@
     const [y, m, d] = iso.split('-').map(Number);
     return d + ' ' + MONTHS_PT[m - 1] + ' ' + y;
   }
-  function initials(name) {
-    return name.split(' ').filter(Boolean).slice(0, 2).map(s => s[0].toUpperCase()).join('');
-  }
   function publishedPosts() {
     return DATA.posts.filter(p => p.status !== 'draft');
   }
@@ -956,10 +957,7 @@
           </div>
           <a class="read-link">Ler artigo completo →</a>
         </div>
-        <div class="feat-thumb">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="14" stroke="currentColor" stroke-width="1.5" /><path d="M13 19h12M19 13v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
-          <span>Imagem</span>
-        </div>
+        <img class="feat-thumb" src="/images/thumb-${featured.category}.webp" alt="${featured.title}" style="object-fit: cover;" />
       `;
       featEl.onclick = () => goArticle(featured.slug);
     }
@@ -1045,7 +1043,6 @@
     document.getElementById('art-author').textContent   = post.author;
     document.getElementById('art-date').textContent     = fmtDate(post.date);
     document.getElementById('art-readtime').textContent = post.readTime;
-    document.getElementById('art-avatar').textContent   = initials(post.author);
 
     const body = document.getElementById('art-body');
     body.innerHTML = '<p style="color: var(--text-3);">A carregar…</p>';

@@ -2,7 +2,7 @@
 
 ## Última sessão
 Data: 2026-04-26
-Commits: config: domínio corrigido para blog.danielfranca.pt
+Commits: imagem: imagens reais adicionadas
 
 ## Feito
 - Sistema dinâmico de posts (posts.json + articles/)
@@ -18,10 +18,12 @@ Commits: config: domínio corrigido para blog.danielfranca.pt
 - renderArticle valida resposta do fetch (rejeita HTML completo / SPA fallback do servidor) — evita injecção de index.html dentro do art-body
 - Domínio corrigido para blog.danielfranca.pt (CNAME, sitemap.xml, robots.txt, build-sitemap.js, index.html)
 - Deploy: GitHub Pages activado + Cloudflare DNS configurado
+- Imagens reais ligadas: foto-perfil.webp (avatar Sobre mim + avatar artigo), thumb-{ia,marketing,automacoes,estrategia}.webp (card destaque dinâmico por categoria), og-image.webp (meta og:image + twitter:image). CSS intacto, só `object-fit: cover` inline em cada `<img>`. Função `initials()` removida (dead code).
 
 ## A fazer (por ordem)
-- [ ] Imagens reais (foto perfil, thumbnails por categoria)
 - [ ] Conteúdo real dos 6 artigos rascunho
+- [ ] (opcional) Aproveitar hero-homepage.webp na hero da home (requer ajuste CSS)
+- [ ] (opcional) Substituir favicon.svg por favicon.webp se preferido
 
 ## Serviços externos
 - Calendly: https://calendly.com/danielfrancadigital/30min
