@@ -29,8 +29,10 @@ Commits:
 - Conteúdo real dos 6 artigos rascunho — todos publicados em formato longo (3–5 secções h2, blockquote, mid-cta Calendly, exemplo prático PT, conclusão accionável)
 
 ## A fazer (por ordem)
-- [ ] (opcional) Aproveitar hero-homepage.webp na hero da home (requer ajuste CSS — frase "podes alterar o CSS")
-- [ ] (opcional) Substituir favicon.svg por favicon.webp se preferido (requer "podes editar o index.html")
+- [x] (opcional) hero-homepage.webp aplicada na hero da home com overlay suave (#FDFAF6 82–92%)
+- [x] (opcional) favicon trocado para /images/favicon.webp
+
+Todas as tarefas do projecto estão concluídas.
 
 ## Serviços externos
 - Calendly: https://calendly.com/danielfrancadigital/30min
