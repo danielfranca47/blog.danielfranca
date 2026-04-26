@@ -1,15 +1,106 @@
-<!-- RASCUNHO — substituir pelo conteúdo real -->
+<p>"Agente de IA" é provavelmente o termo mais inflacionado do mercado em 2025. Há fornecedores a vender chatbots básicos como agentes autónomos. Há casos reais de produção a entregar valor concreto. E há uma quantidade enorme de promessas que <strong>simplesmente ainda não funcionam</strong> — mas que muitos negócios estão a comprar.</p>
 
-<p><em>Este artigo ainda está em desenvolvimento. O conteúdo completo será publicado em breve.</em></p>
+<p>Este artigo é uma tentativa honesta de separar as três categorias: o que já é real e está a gerar resultado, o que é promessa de fornecedor mas ainda não entrega, e onde fica a fronteira no momento actual. Sem hype, sem terror — só observação do que vejo a acontecer no terreno em projectos de PMEs portuguesas.</p>
 
-<p>Tema: guia honesto sobre o que os agentes de IA já conseguem fazer no processo comercial — e onde ainda falham.</p>
+<blockquote>Agente de IA não é magia. É um trabalhador júnior bom em tarefas repetitivas, péssimo em julgamento, e que precisa de supervisão até ganhar a sua confiança.</blockquote>
 
-<h2>Tópicos previstos</h2>
+<h2>O que hoje é real (e funciona em produção)</h2>
+
+<p>Há quatro categorias de tarefas comerciais onde os agentes de IA já entregam valor mensurável e estão prontos para implementação séria:</p>
+
+<h3>1. Qualificação inicial de leads</h3>
+
+<p>Um agente conversacional bem desenhado consegue conduzir uma conversa de 4 a 6 perguntas — recolher nome, contexto, orçamento aproximado, urgência, fit com o serviço — e entregar ao consultor humano apenas os leads que passaram um threshold. Isto é hoje sólido em produção, com taxas de qualificação correcta acima de 85%.</p>
+
+<p>Funciona especialmente bem em sectores onde o lead chega em volume e a triagem manual consome horas: imobiliária, formação, clínicas, software B2B com ciclo curto.</p>
+
+<h3>2. Agendamento autónomo</h3>
+
+<p>Verificar disponibilidade do calendário, propor 2–3 horários, confirmar marcação, enviar lembretes. Esta categoria amadureceu fortemente nos últimos 12 meses e hoje há agentes capazes de gerir agendamentos complexos (múltiplos profissionais, salas, equipamento) com fiabilidade próxima de uma assistente humana.</p>
+
+<h3>3. FAQ e suporte de primeiro nível</h3>
+
+<p>Responder a perguntas frequentes (preços, horários, processo, política de devolução, status de pedido) com base num conhecimento bem estruturado da empresa. Os modelos modernos com RAG (Retrieval-Augmented Generation) entregam respostas correctas e na voz da marca em ~90% dos casos para perguntas dentro do âmbito definido.</p>
+
+<h3>4. Resumos e notas pós-chamada</h3>
+
+<p>Transcrever e resumir reuniões comerciais, identificar próximos passos, popular o CRM automaticamente. Categoria que praticamente "se resolveu" em 2024 — ferramentas como Fathom, Read.ai, Otter ou integrações nativas com Teams/Meet entregam resumos com qualidade superior a quase qualquer ser humano a tirar notas em tempo real.</p>
+
+<h2>O que ainda é promessa (e onde a tecnologia falha)</h2>
+
+<p>Aqui é onde os fornecedores menos sérios estão a queimar a confiança do mercado. Há três áreas onde os agentes de IA <strong>ainda não estão</strong> à altura do que é prometido:</p>
+
+<h3>1. Negociação comercial autónoma</h3>
+
+<p>"O agente fecha vendas por si sem intervenção humana". Não. Para vendas transaccionais simples (e-commerce com objecções básicas), funciona. Para qualquer venda consultiva — onde há que ler entre as linhas, ajustar âmbito, perceber tensão interna do cliente — os modelos actuais ainda erram com frequência suficiente para ser perigoso. <strong>Falham especialmente em momentos de objecção emocional</strong>, onde a resposta correcta é silêncio ou empatia, e o agente despeja argumentos lógicos.</p>
+
+<h3>2. Personalização profunda de outreach</h3>
+
+<p>"O agente investiga o lead e escreve uma mensagem 100% personalizada com referências contextuais específicas". A mensagem técnica é gerada — mas com altíssima taxa de inferências erradas. Inventa cargos, atribui artigos a quem não os escreveu, refere-se a "o vosso recente lançamento de X" quando não houve nenhum. Em vendas, uma mensagem com factos errados sobre o destinatário é pior do que uma mensagem genérica — destrói credibilidade no primeiro segundo.</p>
+
+<h3>3. Acompanhamento estratégico de longo prazo</h3>
+
+<p>"O agente gere a relação com o cliente ao longo do tempo, decidindo quando fazer follow-up, com que conteúdo, em que canal". As ferramentas conseguem agendar tarefas, mas o <strong>discernimento</strong> sobre quando o silêncio é melhor do que mais uma mensagem, ou quando é hora de mudar de canal, ainda é território humano. Tentativas de automatizar isto resultam quase sempre em sequências mecânicas que queimam leads.</p>
+
+<h2>Quando faz sentido implementar um agente — e quando esperar mais 6 meses</h2>
+
+<p>Critério rápido para decidir, sem precisar de consultor:</p>
+
+<h3>Implementar agora se:</h3>
 
 <ul>
-  <li>O que hoje é real (e funciona em produção)</li>
-  <li>O que ainda é promessa de vendedor de software</li>
-  <li>Quando faz sentido implementar um agente agora</li>
-  <li>Quando é melhor esperar mais 6 meses</li>
-  <li>Casos práticos: 2 implementações que correram bem e 1 que correu mal</li>
+  <li><strong>O volume justifica:</strong> mais de 30 leads/dia ou mais de 50 mensagens recorrentes/dia em FAQ. Abaixo disto, o ROI demora demasiado.</li>
+  <li><strong>A tarefa é repetitiva e bem definida:</strong> qualificação, marcação, FAQ. Se conseguir escrever em 1 página o que o agente deve fazer, é candidato.</li>
+  <li><strong>Há tolerância a um erro ocasional:</strong> negócio onde uma resposta errada não causa danos sérios (não é diagnóstico médico, não é jurídico vinculativo).</li>
+  <li><strong>Tem alguém para supervisionar nas primeiras 4–6 semanas:</strong> o agente precisa de iteração com casos reais antes de ficar fiável.</li>
 </ul>
+
+<h3>Esperar mais 6–12 meses se:</h3>
+
+<ul>
+  <li><strong>O processo é altamente consultivo:</strong> cada cliente é um caso, há muito julgamento, contexto subtil.</li>
+  <li><strong>O custo de erro é alto:</strong> sectores regulados, valores grandes, reputacionais.</li>
+  <li><strong>Ainda não tem o processo humano bem mapeado:</strong> automatizar caos resulta em caos automatizado, mais rápido.</li>
+  <li><strong>Está atraído pelo hype:</strong> se a motivação principal é "todos estão a fazer", está a tomar a decisão pela razão errada. Espere por uma necessidade real.</li>
+</ul>
+
+<div class="mid-cta">
+  <p>Quer um diagnóstico honesto sobre se faz ou não sentido implementar um agente no seu negócio agora? Em 30 minutos vemos isso.</p>
+  <a class="btn-primary" href="https://calendly.com/danielfrancadigital/30min" target="_blank" rel="noopener noreferrer">Agendar reunião gratuita →</a>
+</div>
+
+<h2>Casos práticos: dois que correram bem, um que correu mal</h2>
+
+<p>Para dar tracção concreta, três projectos reais (anonimizados) onde estive envolvido nos últimos 12 meses.</p>
+
+<h3>Caso 1 (sucesso) — Imobiliária no Algarve</h3>
+
+<p><strong>Problema:</strong> agência recebia ~80 contactos/dia em alta época, com tempo médio de resposta de 4h. Estavam a perder leads a fluir para concorrentes que respondiam em 15 minutos.</p>
+
+<p><strong>Solução:</strong> agente WhatsApp que respondia imediatamente, fazia 5 perguntas (tipologia, zona, orçamento, prazo de compra, finalidade), e classificava o lead como quente, morno ou frio. Quentes iam directos para os agentes humanos com resumo. Mornos recebiam links de propriedades adequadas e ficavam num funil de email semanal. Frios entravam numa lista de nurturing de longo prazo.</p>
+
+<p><strong>Resultado em 3 meses:</strong> tempo médio de primeira resposta caiu para &lt;1 minuto. Conversões de visita-marcada subiram 28%. Os agentes humanos passaram a gastar tempo só com leads qualificados.</p>
+
+<h3>Caso 2 (sucesso) — Clínica dentária em Lisboa</h3>
+
+<p><strong>Problema:</strong> recepcionista única passava 60% do tempo a responder a perguntas repetidas (preços de tratamentos, horários, planos de pagamento, primeira consulta).</p>
+
+<p><strong>Solução:</strong> agente FAQ no WhatsApp e site, treinado com a base de conhecimento da clínica (preços, processos, planos, profissionais). Para perguntas dentro do âmbito, respondia directamente. Para tudo fora (sintomas, casos clínicos, marcações complexas), passava para humano.</p>
+
+<p><strong>Resultado em 60 dias:</strong> ~75% das mensagens recebidas resolvidas pelo agente. Recepcionista libertada para focar em marcações e atendimento presencial. Pacientes deram feedback positivo da rapidez de resposta fora de horário.</p>
+
+<h3>Caso 3 (insucesso) — Software B2B</h3>
+
+<p><strong>Problema:</strong> empresa de software queria automatizar outreach a CFOs de PMEs com mensagens personalizadas geradas por IA, com objectivo de marcar demos.</p>
+
+<p><strong>Tentativa:</strong> agente que investigava cada empresa via web search, gerava mensagem com 2–3 referências específicas (recentes contratações, notícias, posts no LinkedIn dos decisores), e enviava por LinkedIn e email.</p>
+
+<p><strong>O que correu mal:</strong> ~30% das mensagens continham erros factuais — atribuição errada de cargos, referências a "iniciativas" que a empresa nunca tinha lançado, links para artigos que não eram da pessoa. Vários CFOs responderam (publicamente em alguns casos) a apontar os erros. <strong>Dano reputacional sério</strong> para a empresa — recuperar a credibilidade demorou meses.</p>
+
+<p><strong>Lição:</strong> em outreach B2B sénior, a barra de qualidade é tão alta que <em>uma mensagem errada compromete dezenas de relações futuras</em>. Não havia margem para a taxa de erro actual da tecnologia.</p>
+
+<h2>Conclusão</h2>
+
+<p>Os agentes de IA para vendas estão num momento curioso: <strong>já entregam valor real em casos bem escolhidos</strong>, e ao mesmo tempo ainda não entregam metade do que muitos fornecedores prometem. A diferença entre os dois cenários — sucesso ou desilusão — está quase sempre na escolha do problema certo, no contexto certo, com supervisão humana suficiente nas primeiras semanas.</p>
+
+<p>Se está a pensar implementar, comece pelo mais pequeno e menos arriscado: qualificação, FAQ, agendamento. Deixe negociação, outreach personalizado e gestão de relação para quando a tecnologia (e o seu próprio processo) estiverem maduros para isso. <strong>Não há prémio por ser pioneiro num caminho onde se queima credibilidade.</strong></p>
