@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blog.danielesfranca.pt/sitemap.xml
+Sitemap: https://blog.danielfranca.pt/sitemap.xml

@@ -1,8 +1,8 @@
-# PROGRESS.md — Estado do projecto blog-danielesfranca
+# PROGRESS.md — Estado do projecto blog-danielfranca
 
 ## Última sessão
-Data: 2026-04-25
-Commits: fix: routing de artigo rejeita SPA fallback do servidor
+Data: 2026-04-26
+Commits: config: domínio corrigido para blog.danielfranca.pt
 
 ## Feito
 - Sistema dinâmico de posts (posts.json + articles/)
@@ -16,11 +16,12 @@ Commits: fix: routing de artigo rejeita SPA fallback do servidor
 - Web3Forms ligado ao formulário de contacto (AJAX, feedback inline, honeypot anti-spam)
 - MailerLite ligado à newsletter (AJAX no-cors, mantém identidade visual existente)
 - renderArticle valida resposta do fetch (rejeita HTML completo / SPA fallback do servidor) — evita injecção de index.html dentro do art-body
+- Domínio corrigido para blog.danielfranca.pt (CNAME, sitemap.xml, robots.txt, build-sitemap.js, index.html)
+- Deploy: GitHub Pages activado + Cloudflare DNS configurado
 
 ## A fazer (por ordem)
 - [ ] Imagens reais (foto perfil, thumbnails por categoria)
 - [ ] Conteúdo real dos 6 artigos rascunho
-- [ ] Publicar: GitHub Pages + Cloudflare DNS
 
 ## Serviços externos
 - Calendly: https://calendly.com/danielfrancadigital/30min

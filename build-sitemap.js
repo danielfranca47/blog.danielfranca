@@ -9,7 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE = 'https://blog.danielesfranca.pt';
+const SITE = 'https://blog.danielfranca.pt';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'posts.json'), 'utf8'));
