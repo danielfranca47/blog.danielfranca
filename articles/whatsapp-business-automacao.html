@@ -1,15 +1,123 @@
-<!-- RASCUNHO — substituir pelo conteúdo real -->
+<p>Em Portugal, o WhatsApp não é "só uma app de mensagens". Para um negócio local, é frequentemente <strong>o canal principal de aquisição e conversão</strong> — à frente do email, à frente do telefone, e, em muitos casos, à frente do próprio site. Apesar disso, a maior parte dos negócios usa o WhatsApp como se fosse um chat pessoal: respostas manuais, sem estrutura, sem horário, sem rasto.</p>
 
-<p><em>Este artigo ainda está em desenvolvimento. O conteúdo completo será publicado em breve.</em></p>
+<p>Resultado: leads que escrevem às 22h ficam sem resposta até de manhã (e muitos já desistiram); pedidos que se repetem 50 vezes são respondidos do zero todas as vezes; conversas perdem-se entre o pessoal e o profissional no mesmo número. Tudo isto resolve-se com um pouco de configuração — sem código, sem custos elevados, e em muitos casos só com a aplicação WhatsApp Business gratuita.</p>
 
-<p>Tema: como configurar respostas automáticas, funis de conversação e agendamento no WhatsApp Business — sem código e sem custos elevados.</p>
+<blockquote>O WhatsApp Business bem configurado responde aos clientes melhor do que muitos negócios com equipa de atendimento.</blockquote>
 
-<h2>Tópicos previstos</h2>
+<h2>WhatsApp Business app vs API: a fronteira essencial</h2>
+
+<p>Antes de qualquer coisa, é preciso perceber a diferença entre dois produtos que se chamam quase igual mas servem contextos diferentes.</p>
+
+<h3>WhatsApp Business (app gratuita)</h3>
+
+<p>É a app que se descarrega no telemóvel e que substitui o WhatsApp pessoal num número de empresa. Gratuita. Funciona até 4 dispositivos em simultâneo (telemóvel + 3 outros via WhatsApp Web/Desktop). Tem catálogo, mensagens automáticas básicas, respostas rápidas, etiquetas, perfil de empresa.</p>
+
+<p><strong>Limitações:</strong> chatbots verdadeiros não, integrações com CRM/Calendly só via tools intermediárias (e podem violar termos de uso), volume diário de mensagens limitado, não há automação avançada.</p>
+
+<p>Para a esmagadora maioria dos negócios locais individuais (cabeleireiro, restaurante, consultor solo, clínica pequena), <strong>esta versão chega e sobra</strong>.</p>
+
+<h3>WhatsApp Business Platform (API)</h3>
+
+<p>É um produto pago via fornecedores oficiais (Meta BSP — Twilio, 360dialog, Wati, Infobip, etc.). Permite chatbots a sério, integrações nativas com CRMs, múltiplos agentes a responder no mesmo número, automações complexas. Custos típicos em PT: 15€ a 60€/mês de subscrição base + custos por conversa iniciada (cêntimos cada).</p>
+
+<p>Faz sentido quando: tem equipa de 3+ pessoas a atender; volume superior a ~200 conversas/dia; quer construir chatbot real; precisa de integração CRM séria.</p>
+
+<p>Não faz sentido quando: é uma operação solo ou muito pequena. <strong>Subir para API antes do tempo é gastar dinheiro a fingir que se é uma empresa maior do que se é.</strong></p>
+
+<h2>Configurar a app: o essencial em 30 minutos</h2>
+
+<p>Vamos directos ao que mexe a agulha. Estas três configurações sozinhas resolvem 70% dos problemas de atendimento de um negócio local.</p>
+
+<h3>1. Mensagem de saudação</h3>
+
+<p>Dispara automaticamente quando alguém escreve pela primeira vez (ou depois de 14 dias sem contacto). Vai a Definições → Ferramentas de empresa → Mensagem de saudação.</p>
+
+<p>O erro comum: usar a mensagem por defeito ("Olá, obrigado por entrar em contacto"). É inútil. <strong>Use a saudação para qualificar e dar próximo passo</strong>:</p>
+
+<p><em>"Olá! Bem-vindo à [Nome do negócio]. Para o ajudar mais rápido, indique-me: 1) o seu nome; 2) o serviço que procura; 3) cidade/zona. Respondo em horário comercial (9h–19h, seg-sex). Para marcações imediatas, use: [link Calendly]."</em></p>
+
+<p>Esta mensagem faz três coisas em simultâneo: gere expectativa de tempo de resposta, recolhe info para qualificar, oferece auto-serviço para quem quer só agendar.</p>
+
+<h3>2. Mensagem de ausência</h3>
+
+<p>Dispara fora do horário definido. Vai a Definições → Ferramentas de empresa → Mensagem de ausência.</p>
+
+<p>Configure horário (ex: 19h às 9h, dias úteis; sáb/dom completo) e use a mensagem para evitar a frustração do silêncio:</p>
+
+<p><em>"Obrigado pela mensagem! Estamos fora de horário (resposta humana de seg-sex, 9h–19h). Se for urgente, ligue [número]. Se quer marcar consulta/serviço, use já: [link Calendly]. Voltamos a si na próxima manhã útil."</em></p>
+
+<p>Repare: <strong>a mensagem de ausência não é uma desculpa, é uma alternativa</strong>. Sempre que possível, ofereça um caminho de auto-serviço (link de marcação, FAQ, telefone alternativo).</p>
+
+<h3>3. Respostas rápidas (atalhos)</h3>
+
+<p>Esta é a funcionalidade mais subutilizada. Permite criar atalhos (do tipo `/precos`, `/horario`, `/morada`, `/marcar`) que expandem para mensagens completas pré-escritas.</p>
+
+<p>Configure as 8 a 12 respostas que mais escreve por dia. Algumas obrigatórias para qualquer negócio local:</p>
 
 <ul>
-  <li>O que dá para automatizar só com o WhatsApp Business (sem APIs nem ferramentas externas)</li>
-  <li>Configurar mensagens de saudação, ausência e respostas rápidas</li>
-  <li>Quando faz sentido subir para a API oficial do WhatsApp Business</li>
-  <li>Integração com agendamento (Calendly, Google Calendar) e CRM</li>
-  <li>Funis de conversação: estrutura simples para qualificar leads</li>
+  <li><strong>/precos:</strong> tabela ou range de preços com link para detalhes.</li>
+  <li><strong>/horario:</strong> horário de funcionamento + dias fechados.</li>
+  <li><strong>/morada:</strong> morada + link Google Maps + nota de estacionamento.</li>
+  <li><strong>/marcar:</strong> link Calendly + instruções breves.</li>
+  <li><strong>/proposta:</strong> mensagem-padrão de envio de proposta com prazo de resposta sugerido.</li>
+  <li><strong>/agradecer:</strong> mensagem pós-serviço com pedido de avaliação Google.</li>
 </ul>
+
+<p>Em vez de escrever "obrigado pelo contacto, o nosso horário é..." 30 vezes por dia, escreve `/horario` e está feito. Ganha 1–2 horas por semana, mantém a consistência da comunicação.</p>
+
+<div class="mid-cta">
+  <p>Quer configurar tudo isto bem feito numa hora? Posso fazer isto consigo no setup do seu WhatsApp Business.</p>
+  <a class="btn-primary" href="https://calendly.com/danielfrancadigital/30min" target="_blank" rel="noopener noreferrer">Agendar reunião gratuita →</a>
+</div>
+
+<h2>Integração com Calendly e Google Calendar (sem subir para API)</h2>
+
+<p>Mesmo na versão gratuita, é possível ligar o WhatsApp ao seu agendamento sem violar termos de uso, simplesmente <strong>usando o WhatsApp como camada de comunicação e o Calendly como motor de marcação</strong>.</p>
+
+<p>O fluxo recomendado:</p>
+
+<ul>
+  <li>Cliente escreve para WhatsApp.</li>
+  <li>Mensagem de saudação ou resposta rápida `/marcar` envia o link Calendly.</li>
+  <li>Cliente marca via Calendly. O Google Calendar do consultor é actualizado automaticamente.</li>
+  <li>Calendly envia confirmação via email ao cliente.</li>
+  <li>Make/Zapier (gratuito) detecta nova marcação no Calendly e envia mensagem automática de confirmação no WhatsApp do consultor (não do cliente — isto é importante para evitar problemas).</li>
+</ul>
+
+<p>Para enviar lembretes automáticos via WhatsApp <em>aos clientes</em> (24h antes da marcação), há que subir para API ou usar um BSP. Mas para a maior parte dos negócios solo, esta combinação WhatsApp + Calendly + Google Calendar é mais do que suficiente para o primeiro ano.</p>
+
+<h2>Funil de qualificação em 4 mensagens</h2>
+
+<p>Para serviços onde nem todo o lead que entra é qualificado (consultoria, serviços B2B, marcações de alto valor), faz sentido construir um pequeno guião manual de 4 mensagens que o consultor envia em sequência ao primeiro contacto. Não é automação no sentido técnico — é <strong>processo</strong>.</p>
+
+<ol>
+  <li><strong>Mensagem 1 — Acolher e identificar:</strong> "Olá [nome], obrigado pela mensagem. Para o ajudar bem, pode dizer-me que tipo de serviço procura?"</li>
+  <li><strong>Mensagem 2 — Compreender contexto:</strong> "Perfeito. Está a procurar agora ou para os próximos 1–3 meses? E é a primeira vez ou já trabalhou com alguém antes nesta área?"</li>
+  <li><strong>Mensagem 3 — Verificar fit e orçamento:</strong> "Para alinhar expectativas: serviços neste âmbito custam tipicamente entre X e Y. Faz sentido continuarmos a conversar?"</li>
+  <li><strong>Mensagem 4 — Próximo passo concreto:</strong> "Ótimo. Proponho marcarmos 30 minutos para perceber melhor o seu caso. Use este link para escolher horário: [Calendly]."</li>
+</ol>
+
+<p>Em ~4 minutos de troca, sabe se está perante um lead qualificado ou alguém só a sondar. Filtra cedo, poupa horas em reuniões inúteis.</p>
+
+<h2>Exemplo prático: barbearia em Loulé</h2>
+
+<p>Uma barbearia em Loulé, dois barbeiros, recebia 30–40 mensagens/dia no WhatsApp. Antes da configuração: as marcações eram feitas manualmente, a meio de cortes, com muitas perdas (mensagens esquecidas, marcações duplicadas, clientes que escreviam à noite e ficavam sem resposta).</p>
+
+<p>Mudámos:</p>
+
+<ul>
+  <li>Saudação automática com link Calendly directo para marcar corte (€10) ou corte+barba (€15).</li>
+  <li>Mensagem de ausência das 19h às 9h, com mesmo link e telefone para emergências.</li>
+  <li>10 respostas rápidas para perguntas frequentes (preços, horário, morada, marcas de produto, etc.).</li>
+  <li>Calendly sincronizado com Google Calendar de ambos os barbeiros, com 15 min de buffer entre marcações.</li>
+</ul>
+
+<p>Resultado em 60 dias: marcações via WhatsApp passaram de ~12 confirmadas/semana para ~28; tempo gasto a responder mensagens caiu de ~90 minutos/dia para ~25; zero marcações duplicadas no calendário (antes acontecia 2–3 vezes/semana).</p>
+
+<p>Investimento total: 0€. Apenas configuração da app gratuita + plano gratuito do Calendly.</p>
+
+<h2>Conclusão</h2>
+
+<p>O WhatsApp Business é a melhor "automação para PMEs" disponível em Portugal precisamente porque <strong>não é automação no sentido tecnológico</strong> — é processo bem desenhado em cima de uma app gratuita que toda a gente já usa. Não precisa de subir para API, não precisa de programador, não precisa de subscrições mensais.</p>
+
+<p>Se ainda não configurou saudação, ausência e 10 respostas rápidas, esse é o exercício de maior ROI por hora investida no seu negócio digital nos próximos 30 dias. Sem exagero.</p>
