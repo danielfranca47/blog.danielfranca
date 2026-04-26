@@ -1,4 +1,4 @@
-# CLAUDE.md — Regras do projecto blog-danielesfranca
+# CLAUDE.md — Regras do projecto blog.danielfranca.pt
 
 ## Ficheiro de progresso
 Lê sempre o PROGRESS.md no início de cada sessão.
